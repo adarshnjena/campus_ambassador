@@ -1,0 +1,57 @@
+.app-section {
+    position: relative;
+  }
+  
+  
+  .app-section {
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+  
+  .app-section .app-navbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-section .app-navbar .bx-menu,
+  .app-section .app-navbar .text {
+    color: #11101d;
+    font-size: 35px;
+  }
+  
+  .app-section .app-navbar .bx-menu {
+    margin: 0 15px;
+    cursor: pointer;
+  }
+  
+  .app-section .app-navbar .text {
+    font-size: 26px;
+    font-weight: 600;
+  }
+  
+  
+  @media screen and (max-width: 500px) {
+    .app-section .app-navbar {
+      background-color: #11101d;
+    }
+    .app-section .app-navbar .bx-menu,
+    .app-section .app-navbar .text {
+      color: white;
+      font-size: 30px;
+
+    }
+    .app-section {
+      left: 0;
+      width: 100vw;
+    }
+    
+    .app-section .app-navbar .text {
+        font-size: 5vw;
+        font-weight: 600;
+      }
+      .sidebar.close~.app-section {
+        left: 0px;
+        width: 100vw;
+      }  
+}

@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Home from './pages/home';
+import './style/app.scss';
+import Nav from './components/navbar';
+import { Routes, Route } from 'react-router-dom';
+import Category from './pages/catogary';
+
+
 
 function App() {
+  const [close, setClose] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav close={close} setClose={setClose} />
+      <Routes>
+        <Route path="/" element={<Home close={close} setClose={setClose} />} />
+        <Route path="/category" element={<Category close={close} setClose={setClose} />} />
+        <Route path="/analytics" element={<Home close={close} setClose={setClose} />} />
+        <Route path="/team" element={<Home close={close} setClose={setClose} />} />
+        <Route path="/calendar" element={<Home close={close} setClose={setClose} />} />
+      </Routes>
     </div>
   );
 }
