@@ -1,7 +1,10 @@
+**Live Demo🔗🔗https://fir-d7cd8.web.app/**
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Live Website : - https://fir-d7cd8.web.app/category
 ## Available Scripts
 
 In the project directory, you can run:
