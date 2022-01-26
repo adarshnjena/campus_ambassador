@@ -1,5 +1,5 @@
 /* Google Fonts Import Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 .sidebar {
   position: fixed;
@@ -88,7 +88,7 @@
 }
 
 .sidebar.close .nav-links li .iocn-link {
-  display: block
+  display: block;
 }
 
 .sidebar .nav-links li i {
@@ -113,7 +113,6 @@
   font-weight: 400;
   color: #fff;
   transition: all 0.4s ease;
-
 }
 
 .sidebar.close .nav-links li a .link_name {
@@ -155,7 +154,6 @@
   opacity: 0;
   display: block;
   pointer-events: none;
-
 }
 
 .sidebar.close .nav-links li:hover .sub-menu {
@@ -246,7 +244,6 @@
 }
 
 @media screen and (max-width: 500px) {
-
   .sidebar.close {
     position: absolute;
     left: -100%;
@@ -255,7 +252,6 @@
   .sidebar .logo-details .logo_name {
     width: 30vw;
   }
-
 
   .sidebar .logo-details .logo_name {
     padding: 0;

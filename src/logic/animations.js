@@ -47,3 +47,18 @@ export const sliderContainer = {
       },
     },
   };
+
+  export const showAnim = {
+    hidden: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+  
+      transition: {
+        staggerChildren: 0.15,
+        ease: 'easeOut',
+        duration: 1,
+      },
+    },
+  };
