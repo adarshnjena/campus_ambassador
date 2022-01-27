@@ -89,7 +89,7 @@ function Login({ navbarVisible, setNavbarVisible }) {
                       setNavbarVisible(true);
                     }}
                     to="/home"
-                    className="solid"
+                    className="link solid"
                   >
                     Sign Up
                   </Link>
