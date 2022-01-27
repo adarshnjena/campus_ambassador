@@ -25,7 +25,7 @@ function TaskDetails({ close, setClose }) {
   // Edits Below
   const _ref = useRef(null);
   useEffect(() => {
-    if(!_ref.current) return;
+    if (!_ref.current) return;
     _ref.current.scrollIntoView({ behavior: "smooth" });
   });
   let query = useQuery();
@@ -73,13 +73,16 @@ function TaskDetails({ close, setClose }) {
                     className="tw-rounded-xl tw-max-w-2xl"
                   />
                 </figure>
-<<<<<<< HEAD
-                <div className="card-body">
-                  <h2 className="card-title text-3xl">{this_task.title}</h2>
-                  <p className="text-sm text-gray-400">{this_task.subtitle}</p>
-                  <div className="lg:w-1/2 md:w-2/3 mx-auto pt-6">
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                      <div className="w-full text-justify mx-auto py-2 px-2 text-normal">
+                <div className="tw-card-body">
+                  <h2 className="tw-card-title tw-text-3xl">
+                    {this_task.title}
+                  </h2>
+                  <p className="tw-text-sm tw-text-gray-400">
+                    {this_task.subtitle}
+                  </p>
+                  <div className="lg:tw-w-1/2 md:tw-w-2/3 tw-mx-auto tw-pt-6">
+                    <div className="tw-flex tw-flex-wrap tw--mx-3 tw-mb-6">
+                      <div className="tw-w-full tw-text-justify tw-mx-auto tw-py-2 tw-px-2 tw-text-normal">
                         <span>
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore et
@@ -93,26 +96,30 @@ function TaskDetails({ close, setClose }) {
                         </span>
                       </div>
                     </div>
-                    <div className="justify-center card-actions pt-4">
+                    <div className="tw-justify-center tw-card-actions tw-pt-4">
                       <span
-                        className={`badge ${
-                          this_task.status ? "badge-success" : "badge-error"
+                        className={`tw-badge ${
+                          this_task.status
+                            ? "tw-badge-success"
+                            : "tw-badge-error"
                         }`}
                       >
                         {this_task.status ? "Completed" : "Incomplete"}
                       </span>
                       <span
-                        className={`badge ${
-                          this_task.late ? "badge-warning" : "badge-success"
+                        className={`tw-badge ${
+                          this_task.late
+                            ? "tw-badge-warning"
+                            : "tw-badge-success"
                         }`}
                       >
                         {this_task.late ? "Late" : "On-Time"}
                       </span>
                     </div>
-                    <div className="justify-center card-actions pt-2">
+                    <div className="tw-justify-center tw-card-actions tw-pt-2">
                       <label
-                        className={`btn btn-wide ${
-                          upload_file ? "disabled cursor-not-allowed" : ""
+                        className={`tw-btn tw-btn-wide ${
+                          upload_file ? "tw-disabled tw-cursor-not-allowed" : ""
                         }`}
                       >
                         {upload_file
@@ -120,7 +127,6 @@ function TaskDetails({ close, setClose }) {
                           : "Select a File"}
                         <input
                           onChange={(e) => {
-                            console.log(e.target);
                             set_upload_file(e.target.value);
                             console.log(upload_file);
                           }}
@@ -128,56 +134,25 @@ function TaskDetails({ close, setClose }) {
                           id="src"
                           name="src"
                           required
-                          className="hidden"
+                          className="tw-hidden"
                         />
                       </label>
                       <button
                         onClick={(e) => {
                           console.log(e);
                         }}
-                        className={`btn btn-primary ${
-                          upload_file ? "" : "hidden"
+                        className={`tw-btn tw-btn-info ${
+                          upload_file ? "" : "tw-hidden"
                         }`}
                       >
                         Upload
                       </button>
                     </div>
                   </div>
-                  <div className="justify-center text-sm pt-6">
-                    <span className="text-xs text-gray-600">
+                  <div className="tw-justify-center tw-text-sm pt-6">
+                    <span className="tw-text-xs tw-text-gray-600">
                       Task ID: {this_task.id}
                     </span>
-=======
-                <div className="tw-card-body">
-                  <h2 className="tw-card-title tw-text-3xl">{this_task.title}</h2>
-                  <p className="tw-text-sm tw-text-gray-400">{this_task.subtitle}</p>
-                  <div className="lg:tw-w-1/2 md:tw-w-2/3 tw-mx-auto tw-pt-6">
-                    <div className="tw-flex tw-flex-wrap tw--mx-3 tw-mb-6">
-                      <div className="tw-w-full tw-text-justify tw-mx-auto tw-py-2 tw-px-2 tw-text-normal">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                      </div>
-                    </div>
-                    <div className="tw-justify-center tw-card-actions tw-pt-4">
-                      <span className={`tw-badge ${this_task.status ? 'tw-badge-success':'tw-badge-error'}`}>{this_task.status ? 'Completed':'Incomplete'}</span>
-                      <span className={`tw-badge ${this_task.late ? 'tw-badge-warning':'tw-badge-success'}`}>{this_task.late ? 'Late':'On-Time'}</span>
-                    </div>
-                    <div className="tw-justify-center tw-card-actions tw-pt-2">
-                    <label
-                    className={`tw-btn tw-btn-wide ${upload_file ? 'tw-disabled tw-cursor-not-allowed':''}`}>
-                    {upload_file ? upload_file.split('\\').pop().split('/').pop() : 'Select a File'}
-                    <input onChange={
-                      (e) => {
-                        set_upload_file(e.target.value);
-                        console.log(upload_file);
-                      }
-                    } type="file" id="src" name="src" required className="tw-hidden" />
-							      </label>
-                    <button onClick={(e) => {console.log(e)}} className={`tw-btn tw-btn-info ${upload_file ? '':'tw-hidden'}`}>Upload</button>
-                    </div>
-                  </div>
-                  <div className="tw-justify-center tw-text-sm pt-6">
-                    <span className="tw-text-xs tw-text-gray-600">Task ID: {this_task.id}</span>
->>>>>>> 0bb93f93a6f9ce0695c5be892fc1efd1906f2a79
                   </div>
                 </div>
               </div>
