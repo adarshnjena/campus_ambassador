@@ -5,14 +5,28 @@ import Nav from "./components/navbar";
 import { Routes, Route } from "react-router-dom";
 import Tasks from "./pages/tasks";
 import TaskDetails from "./pages/tasksDetails";
+import Login from "./pages/login";
 
 function App() {
   const [close, setClose] = useState(true);
+  const [navbarVisible, setNavbarVisible] = useState(false);
   return (
     <div>
-      <Nav close={close} setClose={setClose} />
+      {navbarVisible ? (
+        <Nav
+          close={close}
+          setClose={setClose}
+          navbarVisible={navbarVisible}
+          setNavbarVisible={setNavbarVisible}
+        />
+      ) : (
+        <></>
+      )}
       <Routes>
-        <Route path="/" element={<Home close={close} setClose={setClose} />} />
+        <Route
+          path="/home"
+          element={<Home close={close} setClose={setClose} />}
+        />
         <Route
           path="/tasks"
           element={<Tasks close={close} setClose={setClose} />}
@@ -32,6 +46,15 @@ function App() {
         <Route
           path="/taskdetails"
           element={<TaskDetails close={close} setClose={setClose} />}
+        />
+        <Route
+          path="/"
+          element={
+            <Login
+              navbarVisible={navbarVisible}
+              setNavbarVisible={setNavbarVisible}
+            />
+          }
         />
       </Routes>
     </div>

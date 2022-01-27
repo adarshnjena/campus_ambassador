@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../logic/animations";
 
-function Nav({ close, setClose }) {
+function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
   const navToggelHandler = () => {
     setClose(true);
   };
@@ -31,7 +31,7 @@ function Nav({ close, setClose }) {
                   backgroundColor: isActive ? "black" : "#11101d",
                 };
               }}
-              to="/"
+              to="/home"
             >
               <i className="bx bx-home"></i>
               <span className="link_name">Home</span>
@@ -140,18 +140,25 @@ function Nav({ close, setClose }) {
               </li>
             </ul>
           </li>
-          <li>
-            <div className="profile-details">
-              <div className="profile-content">
-                <img src="image/profile.svg" />
+          <Link
+            onClick={() => {
+              setNavbarVisible(false);
+            }}
+            to={"/"}
+          >
+            <li>
+              <div className="profile-details">
+                <div className="profile-content">
+                  <img src="image/profile.svg" />
+                </div>
+                <div className="name-job">
+                  <div className="profile_name">User</div>
+                  <div className="job">Campus Ambasidor</div>
+                </div>
+                <i className="bx bx-log-out"></i>
               </div>
-              <div className="name-job">
-                <div className="profile_name">User</div>
-                <div className="job">Campus Ambasidor</div>
-              </div>
-              <i className="bx bx-log-out"></i>
-            </div>
-          </li>
+            </li>
+          </Link>
         </ul>
       </div>
     </motion.div>
