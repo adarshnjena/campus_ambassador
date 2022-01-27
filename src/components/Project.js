@@ -96,11 +96,13 @@ const Detail = styled.div`
 `;
 const Title = styled.h3`
   font-weight: 500;
+  font-size: 18px;
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     font-size: 1rem;
   }
 `;
 const SubTitle = styled.h5`
+  font-size: 13px;
   font-weight: 300;
 `;
 const AllProject = styled.h5`

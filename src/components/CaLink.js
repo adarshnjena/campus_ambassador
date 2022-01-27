@@ -48,6 +48,7 @@ const Detail = styled.div`
   margin-left: 1rem;
 `;
 const Title = styled.h3`
+  font-size: 18px;
   font-weight: 500;
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     font-size: 1rem;

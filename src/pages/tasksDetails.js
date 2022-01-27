@@ -73,30 +73,73 @@ function TaskDetails({ close, setClose }) {
                   <div className="lg:w-1/2 md:w-2/3 mx-auto pt-6">
                     <div className="flex flex-wrap -mx-3 mb-6">
                       <div className="w-full text-justify mx-auto py-2 px-2 text-normal">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <span>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate velit esse cillum dolore eu
+                          fugiat nulla pariatur. Excepteur sint occaecat
+                          cupidatat non proident, sunt in culpa qui officia
+                          deserunt mollit anim id est laborum.
+                        </span>
                       </div>
                     </div>
                     <div className="justify-center card-actions pt-4">
-                      <span className={`badge ${this_task.status ? 'badge-success':'badge-error'}`}>{this_task.status ? 'Completed':'Incomplete'}</span>
-                      <span className={`badge ${this_task.late ? 'badge-warning':'badge-success'}`}>{this_task.late ? 'Late':'On-Time'}</span>
+                      <span
+                        className={`badge ${
+                          this_task.status ? "badge-success" : "badge-error"
+                        }`}
+                      >
+                        {this_task.status ? "Completed" : "Incomplete"}
+                      </span>
+                      <span
+                        className={`badge ${
+                          this_task.late ? "badge-warning" : "badge-success"
+                        }`}
+                      >
+                        {this_task.late ? "Late" : "On-Time"}
+                      </span>
                     </div>
                     <div className="justify-center card-actions pt-2">
-                    <label
-                    className={`btn btn-wide ${upload_file ? 'disabled cursor-not-allowed':''}`}>
-                    {upload_file ? upload_file.split('\\').pop().split('/').pop() : 'Select a File'}
-                    <input onChange={
-                      (e) => {
-                        console.log(e.target);
-                        set_upload_file(e.target.value);
-                        console.log(upload_file);
-                      }
-                    } type="file" id="src" name="src" required className="hidden" />
-							      </label>
-                    <button onClick={(e) => {console.log(e)}} className={`btn btn-primary ${upload_file ? '':'hidden'}`}>Upload</button>
+                      <label
+                        className={`btn btn-wide ${
+                          upload_file ? "disabled cursor-not-allowed" : ""
+                        }`}
+                      >
+                        {upload_file
+                          ? upload_file.split("\\").pop().split("/").pop()
+                          : "Select a File"}
+                        <input
+                          onChange={(e) => {
+                            console.log(e.target);
+                            set_upload_file(e.target.value);
+                            console.log(upload_file);
+                          }}
+                          type="file"
+                          id="src"
+                          name="src"
+                          required
+                          className="hidden"
+                        />
+                      </label>
+                      <button
+                        onClick={(e) => {
+                          console.log(e);
+                        }}
+                        className={`btn btn-primary ${
+                          upload_file ? "" : "hidden"
+                        }`}
+                      >
+                        Upload
+                      </button>
                     </div>
                   </div>
                   <div className="justify-center text-sm pt-6">
-                    <span className="text-xs text-gray-600">Task ID: {this_task.id}</span>
+                    <span className="text-xs text-gray-600">
+                      Task ID: {this_task.id}
+                    </span>
                   </div>
                 </div>
               </div>

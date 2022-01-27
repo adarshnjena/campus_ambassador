@@ -45,12 +45,15 @@ const CardContent = styled.div`
 `;
 
 const CaText = styled.h3`
+  font-size: 18px;
   text-align: center;
   font-weight: normal;
   padding: 0.4rem 0;
 `;
 
 const Code = styled.h2`
+  font-weight: 700;
+  font-size: 24px;
   text-align: center;
 `;
 

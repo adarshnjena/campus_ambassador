@@ -79,9 +79,12 @@ const InfoContainer = styled.div`
   margin-left: 0.7rem;
 `;
 const Title = styled.h3`
+  font-weight: 700;
+  font-size: 20px;
   color: black;
 `;
 const SubTitle = styled.h5`
+  font-size: 13px;
   color: #333333;
   font-weight: normal;
 `;

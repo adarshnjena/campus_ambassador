@@ -96,6 +96,8 @@ const Frame4 = styled(Frame1)`
 `;
 const Text = styled.h1`
   text-align: center;
+  font-size: 24px;
+  font-weight: 700;
   span {
     font-weight: 500;
     color: #484258;

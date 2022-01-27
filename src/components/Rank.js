@@ -53,6 +53,8 @@ const Chart = styled.div`
 `;
 
 const RankText = styled.h3`
+  font-weight: 500;
+  font-size: 18px;
   text-align: center;
   font-weight: normal;
   padding: 0.4rem 0;
@@ -60,9 +62,12 @@ const RankText = styled.h3`
 
 const Rank = styled.h2`
   text-align: center;
+  font-weight: 950;
+  font-size: 25px;
 `;
 
 const RankIncrease = styled.h5`
+  font-size: 15px;
   text-align: center;
   font-weight: normal;
   background-color: rgba(0, 0, 0, 0.2);
