@@ -8,6 +8,8 @@ import {
   showAnim,
 } from "../logic/animations";
 import styled from "styled-components";
+import "../style/taskDetails.scss";
+import projectData from "../utils/taskData";
 
 // Edits Below
 import { useLocation } from "react-router-dom";
@@ -23,6 +25,7 @@ function TaskDetails({ close, setClose }) {
   // Edits Below
   let query = useQuery();
   let task_id = Number(query.get("task_id"));
+  let this_task = projectData()[task_id];
   // End Edits
   return (
     <motion.section
@@ -52,13 +55,43 @@ function TaskDetails({ close, setClose }) {
         <span className="text">Task {task_id + 1}</span>
       </motion.div>
       <motion.div variants={showAnim}>
-        <div className="mainDiv">
-          <h1>Hello</h1>
-        </div>
+        <section className="hero">
+          <div className="container px-5 py-24 mx-auto rounded-t-3xl">
+            <div className="flex flex-col text-center w-full mb-12">
+              <div className="card card-bordered bg-gray-300">
+                <figure>
+                  <img
+                    src="https://picsum.photos/id/773/1000/200?blur=true"
+                    alt="is-this-gud?"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title text-3xl">{this_task.title}</h2>
+                  <p className="text-sm text-gray-400">{this_task.subtitle}</p>
+                  <div className="lg:w-1/2 md:w-2/3 mx-auto pt-6">
+                    <div className="flex flex-wrap -mx-3 mb-6">
+                      <div className="w-full mx-auto py-2 px-2 text-normal border-b-2 border-gray-600">
+                        <span>WTF IS A CONTENT ?</span>
+                      </div>
+                    </div>
+                    <div className="justify-center card-actions pt-4">
+                      <span className={`badge ${this_task.status ? 'badge-success':'badge-error'}`}>{this_task.status ? 'Completed':'Incomplete'}</span>
+                      <span className={`badge ${this_task.late ? 'badge-warning':'badge-success'}`}>{this_task.late ? 'Late':'On Time'}</span>
+                    </div>
+                  </div>
+                  <div className="justify-center text-sm pt-6">
+                    <span className="text-xs text-gray-600">Task ID: {this_task.id}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </motion.div>
     </motion.section>
   );
 }
+
 //Frame Animation
 const Frame1 = styled(motion.div)`
   position: fixed;
