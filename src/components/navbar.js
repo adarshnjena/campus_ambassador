@@ -1,3 +1,4 @@
+import React from 'react'; // Fix for undefined
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../logic/animations";

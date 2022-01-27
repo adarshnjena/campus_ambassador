@@ -4,18 +4,18 @@ import { hoverEffect, darkThemeColor } from "../utils";
 
 function CaCodeCard() {
   return (
-    <CaCode>
+    <CaCodeDiv>
       <CardContent>
         <CaText>Your Code : -</CaText>
-        <Ca_Code>
+        <CaCodeText>
           <Code>7890</Code>
-        </Ca_Code>
+        </CaCodeText>
       </CardContent>
-    </CaCode>
+    </CaCodeDiv>
   );
 }
 
-const CaCode = styled.div`
+const CaCodeDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,7 +54,7 @@ const Code = styled.h2`
   text-align: center;
 `;
 
-const Ca_Code = styled.h5`
+const CaCodeText = styled.h5`
   text-align: center;
   font-weight: normal;
   background-color: rgba(0, 0, 0, 0.2);
