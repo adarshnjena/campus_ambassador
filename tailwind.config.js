@@ -9,7 +9,7 @@ module.exports = {
     require('daisyui')
   ],
   corePlugins: {
-    preflight: true,
+    preflight: false,
   },
   daisyui: {
     themes: false,
