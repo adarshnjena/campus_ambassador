@@ -26,7 +26,8 @@ function TaskDetails({ close, setClose }) {
   const _ref = useRef(null);
   useEffect(() => {
     if(!_ref.current) return;
-    _ref.current.scrollIntoView({ behavior: "smooth" });
+    // Commenting out the scroll until I figure out a better method.
+    //_ref.current.scrollIntoView({ behavior: "smooth" });
   });
   let query = useQuery();
   let task_id = Number(query.get("task_id"));
@@ -171,7 +172,7 @@ function TaskDetails({ close, setClose }) {
                         console.log(upload_file);
                       }
                     } type="file" id="src" name="src" required className="tw-hidden" />
-							      </label>
+                    </label>
                     <button onClick={(e) => {console.log(e)}} className={`tw-btn tw-btn-info ${upload_file ? '':'tw-hidden'}`}>Upload</button>
                     </div>
                   </div>
