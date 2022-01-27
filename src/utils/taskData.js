@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-
 function projectData() {
   return [
     {
@@ -8,7 +6,6 @@ function projectData() {
       subtitle: "5 days remaining",
       status: false,
       late: false,
-      id: uuidv4(),
     },
     {
       title: "First Project",
@@ -16,7 +13,6 @@ function projectData() {
       subtitle: "5 days remaining",
       status: false,
       late: true,
-      id: uuidv4(),
     },
     {
       title: "First Project",
@@ -24,7 +20,6 @@ function projectData() {
       subtitle: "5 days remaining",
       status: false,
       late: false,
-      id: uuidv4(),
     },
     {
       title: "First Project",
@@ -32,7 +27,6 @@ function projectData() {
       subtitle: "5 days remaining",
       status: true,
       late: false,
-      id: uuidv4(),
     },
     {
       title: "First Project",
@@ -40,7 +34,6 @@ function projectData() {
       subtitle: "5 days remaining",
       status: true,
       late: false,
-      id: uuidv4(),
     },
   ];
 }
