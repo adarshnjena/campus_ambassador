@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/login.scss";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -10,6 +10,39 @@ import {
 } from "../logic/animations";
 import styled from "styled-components";
 
+
+// * Start of Firebase
+import 'firebaseui/dist/firebaseui.css';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import {getAuth,GoogleAuthProvider, EmailAuthProvider, PhoneAuthProvider} from 'firebase/auth'
+import {auth as fui_auth} from 'firebaseui'
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+const firebaseConfig = {
+  // create a .env with the proper key
+  apiKey: "AIzaSyCEh7vHPOJBbmCIZ_pHOqLnDBsKh5-UHBQ",
+  authDomain: "adhyaaya-dev-env.firebaseapp.com",
+  projectId: "adhyaaya-dev-env",
+  storageBucket: "adhyaaya-dev-env.appspot.com",
+  messagingSenderId: "299413973703",
+  appId: "1:299413973703:web:76d391cfe68069db132ce2",
+  measurementId: "G-Z9Z1GHE65D"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+// * End of Firebase
+
+
 function Login({ _, setNavbarVisible }) {
   const slideLeft = () => {
     let container = document.getElementById("container");
@@ -20,6 +53,36 @@ function Login({ _, setNavbarVisible }) {
     let container = document.getElementById("container");
     container.classList.remove("sign-up-mode");
   };
+
+  useEffect(() => {
+    console.log("bruh")
+    var uiConfig = {
+      signInSuccessUrl: '/home',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        GoogleAuthProvider.PROVIDER_ID,
+        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        EmailAuthProvider.PROVIDER_ID,
+        PhoneAuthProvider.PROVIDER_ID,
+        //firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+      ],
+      // tosUrl and privacyPolicyUrl accept either url string or a callback
+      // function.
+      // Terms of service url/callback.
+      tosUrl: '<your-tos-url>',
+      // Privacy policy url/callback.
+      privacyPolicyUrl: function() {
+        window.location.assign('<your-privacy-policy-url>');
+      }
+    };
+
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new fui_auth.AuthUI(getAuth(app));
+    // The start method will wait until the DOM is loaded.
+    ui.start('#signin-signup', uiConfig);
+  }, [])
   return (
     <motion.div variants={loginAnim} initial="hidden" animate="show">
       <motion.div variants={sliderContainer}>
@@ -32,85 +95,8 @@ function Login({ _, setNavbarVisible }) {
         <div>
           <div id="container">
             <div className="forms-container">
-              <div className="signin-signup">
-                <form className="sign-in-form">
-                  <h2 className="title">Sign in</h2>
-                  <div className="input-field">
-                    <i className="fas fa-user"></i>
-                    <input type="text" placeholder="Username" />
-                  </div>
-                  <div className="input-field">
-                    <i className="fas fa-lock"></i>
-                    <input type="password" placeholder="Password" />
-                  </div>
-                  <Link
-                    onClick={() => {
-                      setNavbarVisible(true);
-                    }}
-                    to="/home"
-                    className="link solid"
-                  >
-                    Login
-                  </Link>
-                  <p className="social-text">
-                    Or Sign in with social platforms
-                  </p>
-                  <div className="social-media">
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-google"></i>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                  </div>
-                </form>
-                <form className="sign-up-form">
-                  <h2 className="title">Sign up</h2>
-                  <div className="input-field">
-                    <i className="fas fa-user"></i>
-                    <input type="text" placeholder="Username" />
-                  </div>
-                  <div className="input-field">
-                    <i className="fas fa-envelope"></i>
-                    <input type="email" placeholder="Email" />
-                  </div>
-                  <div className="input-field">
-                    <i className="fas fa-lock"></i>
-                    <input type="password" placeholder="Password" />
-                  </div>
-                  <Link
-                    onClick={() => {
-                      setNavbarVisible(true);
-                    }}
-                    to="/home"
-                    className="link solid"
-                  >
-                    Sign Up
-                  </Link>
-                  <p className="social-text">
-                    Or Sign up with social platforms
-                  </p>
-                  <div className="social-media">
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-google"></i>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                  </div>
-                </form>
+              <div id="signin-signup" className="signin-signup">
+                
               </div>
             </div>
 
