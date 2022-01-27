@@ -10,7 +10,7 @@ import {
 } from "../logic/animations";
 import styled from "styled-components";
 
-function Login({ navbarVisible, setNavbarVisible }) {
+function Login({ _, setNavbarVisible }) {
   const slideLeft = () => {
     let container = document.getElementById("container");
     container.classList.add("sign-up-mode");
