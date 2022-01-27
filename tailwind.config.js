@@ -13,5 +13,6 @@ module.exports = {
   },
   daisyui: {
     themes: false,
-  }
-}
+  },
+  prefix: "tw-",
+};
