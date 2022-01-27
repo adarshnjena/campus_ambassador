@@ -14,10 +14,11 @@ function Task({ seeAll }) {
     <YourProject>
       {projectData()
         .slice(0, size)
-        .map((proj) => {
+        // added cur_index
+        .map((proj, cur_index) => {
           return (
             <Project>
-              <ProjectDetails to={"/"}>
+              <ProjectDetails to={`/taskdetails?task_id=${cur_index}`}>
                 <Avatar>
                   <img src={proj.img} alt="" />
                 </Avatar>

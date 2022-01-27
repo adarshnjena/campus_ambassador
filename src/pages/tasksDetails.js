@@ -9,7 +9,21 @@ import {
 } from "../logic/animations";
 import styled from "styled-components";
 
+// Edits Below
+import { useLocation } from "react-router-dom";
+
+function useQuery() {
+  const { search } = useLocation();
+
+  return React.useMemo(() => new URLSearchParams(search), [search]);
+}
+// End Edit
+
 function TaskDetails({ close, setClose }) {
+  // Edits Below
+  let query = useQuery();
+  let task_id = Number(query.get("task_id"));
+  // End Edits
   return (
     <motion.section
       className="app-section"
@@ -35,7 +49,7 @@ function TaskDetails({ close, setClose }) {
           }}
           className="bx bx-menu"
         ></i>
-        <span className="text">Campus Ambassador Program</span>
+        <span className="text">Task {task_id + 1}</span>
       </motion.div>
       <motion.div variants={showAnim}>
         <div className="mainDiv">
