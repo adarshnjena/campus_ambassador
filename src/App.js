@@ -10,6 +10,7 @@ import Login from "./pages/login";
 import Faq from "./pages/faq";
 import Scores from "./pages/scores";
 import Team from "./pages/team";
+import Form from "./pages/login_forms";
 
 function App() {
   const [close, setClose] = useState(true);
@@ -27,15 +28,7 @@ function App() {
         <></>
       )}
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Login
-              navbarVisible={navbarVisible}
-              setNavbarVisible={setNavbarVisible}
-            />
-          }
-        />
+        <Route path="/" element={<Form></Form>} />
         <Route
           path="/home"
           element={
