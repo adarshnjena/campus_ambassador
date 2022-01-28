@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { auth } from "../logic/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 import {
   pageAnimation,
   titleAnim,
@@ -16,6 +19,20 @@ import CaCodeCard from "../components/caCode";
 import CaLink from "../components/CaLink";
 function Home({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
+  let navigate = useNavigate();
+  const redirect = () => {
+    navigate("/");
+  };
+  const [user, setUser] = useState(null);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+    setTimeout(() => {
+      if (!currentUser) {
+        setNavbarVisible(false);
+        redirect();
+      }
+    }, 1000);
+  });
   return (
     <motion.section
       className="app-section"
@@ -47,8 +64,7 @@ function Home({ close, setClose, setNavbarVisible }) {
         <div className="mainDiv">
           <ColumnTwo>
             <Text>
-              Good morning,
-              <span> Adarsh Jena</span>
+              Good morning ,<span> {user?.displayName || user?.email}</span>
             </Text>
             {/* <InputContainer>
               <Icon>
@@ -80,7 +96,7 @@ function Home({ close, setClose, setNavbarVisible }) {
 const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 0;
   width: 150vw;
   height: 150vh;
   background: #fffebf;

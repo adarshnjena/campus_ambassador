@@ -2,11 +2,22 @@ import React from "react"; // Fix for undefined
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../logic/animations";
+import { auth } from "../logic/firebase";
+import { signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { useState } from "react";
 
 function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
   const navToggelHandler = () => {
     setClose(true);
   };
+  const logout = async () => {
+    await signOut(auth);
+  };
+  const [user, setUser] = useState(null);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
 
   return (
     <motion.div variants={pageAnimation} initial="hidden" animate="show">
@@ -144,17 +155,20 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
           <Link
             onClick={() => {
               setNavbarVisible(false);
+              logout();
             }}
             to={"/"}
           >
             <li>
               <div className="profile-details">
                 <div className="profile-content">
-                  <img src="image/profile.svg" />
+                  <img src={user?.photoURL || "image/profile.svg"} />
                 </div>
                 <div className="name-job">
-                  <div className="profile_name">User</div>
-                  <div className="job">Campus Ambasidor</div>
+                  <div className="profile_name">
+                    {user?.displayName || user?.email}
+                  </div>
+                  <div className="job">Log Out</div>
                 </div>
                 <i className="bx bx-log-out"></i>
               </div>

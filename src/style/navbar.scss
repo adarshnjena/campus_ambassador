@@ -226,9 +226,10 @@
 }
 
 .sidebar .profile-details .profile_name,
-.sidebar .profile-details .job {
-  color: #fff;
-  font-size: 18px;
+.sidebar .profile-details .job,
+.bx-log-out {
+  color: #ff7676;
+  font-size: 10px;
   font-weight: 500;
   white-space: nowrap;
 }

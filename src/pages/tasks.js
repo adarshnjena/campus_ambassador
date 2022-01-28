@@ -48,7 +48,7 @@ function Tasks({ close, setClose }) {
 const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 0;
   width: 150vw;
   height: 150vh;
   background: #fffebf;

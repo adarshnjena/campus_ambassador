@@ -6,7 +6,6 @@ import Nav from "./components/navbar";
 import { Routes, Route } from "react-router-dom";
 import Tasks from "./pages/tasks";
 import TaskDetails from "./pages/tasksDetails";
-import Login from "./pages/login";
 import Faq from "./pages/faq";
 import Scores from "./pages/scores";
 import Team from "./pages/team";
@@ -41,23 +40,53 @@ function App() {
         />
         <Route
           path="/tasks"
-          element={<Tasks close={close} setClose={setClose} />}
+          element={
+            <Tasks
+              close={close}
+              setClose={setClose}
+              setNavbarVisible={setNavbarVisible}
+            />
+          }
         />
         <Route
           path="/team"
-          element={<Team close={close} setClose={setClose} />}
+          element={
+            <Team
+              close={close}
+              setClose={setClose}
+              setNavbarVisible={setNavbarVisible}
+            />
+          }
         />
         <Route
           path="/faq"
-          element={<Faq close={close} setClose={setClose} />}
+          element={
+            <Faq
+              close={close}
+              setClose={setClose}
+              setNavbarVisible={setNavbarVisible}
+            />
+          }
         />
         <Route
           path="/scores"
-          element={<Scores close={close} setClose={setClose} />}
+          element={
+            <Scores
+              close={close}
+              setClose={setClose}
+              setNavbarVisible={setNavbarVisible}
+            />
+          }
         />
         <Route
           path="/taskdetails"
-          element={<TaskDetails close={close} setClose={setClose} />}
+          element={
+            <TaskDetails
+              close={close}
+              setClose={setClose}
+              setNavbarVisible={setNavbarVisible}
+            />
+          }
         />
       </Routes>
     </div>

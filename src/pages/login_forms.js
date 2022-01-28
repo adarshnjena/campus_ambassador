@@ -16,7 +16,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { auth } from "../logic/firebase";
+import { auth, signInWithGoogle } from "../logic/firebase";
 
 function Form() {
   const onClickButton = (e) => {
@@ -33,21 +33,22 @@ function Form() {
   };
 
   //firebase logic------------------
-  const redirect = async (userData) => {
+  let navigate = useNavigate();
+  const redirect = (userData) => {
     if (userData) {
       navigate("home");
     }
   };
 
   const [registerEmail, setRegisterEmail] = useState("");
+  const [registerName, setRegisterName] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  let navigate = useNavigate();
-  const [user, setUser] = useState({});
-
+  const [user, setUser] = useState(null);
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
+    redirect(user);
   });
 
   const register = async () => {
@@ -126,29 +127,41 @@ function Form() {
                       login();
                     }}
                   />
-                  <p className="social-text">
-                    Or Sign in with social platforms
-                  </p>
+                  <p className="social-text">Or Sign in with Google</p>
                   <div className="social-media">
-                    <a href="/" className="social-icon">
+                    {/* <a href="/" className="social-icon">
                       <i className="fab fa-facebook-f"></i>
                     </a>
                     <a href="/" className="social-icon">
                       <i className="fab fa-twitter"></i>
                     </a>
-                    <a href="/" className="social-icon">
+                    <a onClick={signInWithGoogle} className="social-icon">
                       <i className="fab fa-google"></i>
                     </a>
                     <a href="/" className="social-icon">
                       <i className="fab fa-linkedin-in"></i>
-                    </a>
+                    </a> */}
+                    <button
+                      class="login-with-google-btn"
+                      onClick={(e) => {
+                        onClickButton(e);
+                        signInWithGoogle();
+                      }}
+                    >
+                      Sign in with Google
+                    </button>
                   </div>
                 </form>
                 <form action="/" className="sign-up-form">
                   <h2 className="title">Sign up</h2>
                   <div className="input-field">
                     <i className="fas fa-user"></i>
-                    <input type="text" placeholder="Name" />
+                    <input
+                      placeholder="Name..."
+                      onChange={(event) => {
+                        setRegisterName(event.target.value);
+                      }}
+                    />
                   </div>
                   <div className="input-field">
                     <i className="fas fa-envelope"></i>
@@ -177,22 +190,29 @@ function Form() {
                       register();
                     }}
                   />
-                  <p className="social-text">
-                    Or Sign up with social platforms
-                  </p>
+                  <p className="social-text">Or Sign Up with Google</p>
                   <div className="social-media">
-                    <a href="/" className="social-icon">
+                    {/* <a href="/" className="social-icon">
                       <i className="fab fa-facebook-f"></i>
                     </a>
                     <a href="/" className="social-icon">
                       <i className="fab fa-twitter"></i>
                     </a>
-                    <a href="/" className="social-icon">
+                    <a onClick={signInWithGoogle} className="social-icon">
                       <i className="fab fa-google"></i>
                     </a>
                     <a href="/" className="social-icon">
                       <i className="fab fa-linkedin-in"></i>
-                    </a>
+                    </a> */}
+                    <button
+                      class="login-with-google-btn"
+                      onClick={(e) => {
+                        onClickButton(e);
+                        signInWithGoogle();
+                      }}
+                    >
+                      Sign Up with Google
+                    </button>
                   </div>
                 </form>
               </div>
@@ -206,20 +226,12 @@ function Form() {
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Debitis, ex ratione. Aliquid!
                   </p>
-                  <h4> User Logged In: {user?.email}</h4>
                   <button
                     onClick={slideLeft}
                     className="btn transparent"
                     id="sign-up-btn"
                   >
                     Sign up
-                  </button>
-                  <button
-                    className="btn transparent"
-                    id="sign-in-btn"
-                    onClick={logout}
-                  >
-                    Sign Out
                   </button>
                 </div>
                 <img
@@ -235,20 +247,12 @@ function Form() {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Nostrum laboriosam ad deleniti.
                   </p>
-                  <h4> User Logged In: {user?.email}</h4>
                   <button
                     onClick={slideRight}
                     className="btn transparent"
                     id="sign-in-btn"
                   >
                     Sign in
-                  </button>
-                  <button
-                    className="btn transparent"
-                    id="sign-in-btn"
-                    onClick={logout}
-                  >
-                    Sign Out
                   </button>
                 </div>
                 <img

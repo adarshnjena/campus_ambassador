@@ -128,7 +128,6 @@ function TaskDetails({ close, setClose }) {
                         <input
                           onChange={(e) => {
                             set_upload_file(e.target.value);
-                            
                           }}
                           type="file"
                           id="src"
@@ -140,7 +139,7 @@ function TaskDetails({ close, setClose }) {
                       <button
                         onClick={(e) => {
                           console.log(e);
-                          e.target.classList += "tw-btn-success "
+                          e.target.classList += "tw-btn-success ";
                           // add tw-btn-success or tw-btn-error depending on ok or not
                         }}
                         className={`tw-btn tw-btn-info ${
@@ -170,7 +169,7 @@ function TaskDetails({ close, setClose }) {
 const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 0;
   width: 150vw;
   height: 150vh;
   background: #fffebf;

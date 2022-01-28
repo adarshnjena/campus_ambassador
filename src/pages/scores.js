@@ -8,8 +8,27 @@ import {
   showAnim,
 } from "../logic/animations";
 import styled from "styled-components";
+import { auth } from "../logic/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function Scores({ close, setClose }) {
+function Scores({ close, setClose, setNavbarVisible }) {
+  setNavbarVisible(true);
+  let navigate = useNavigate();
+  const redirect = () => {
+    navigate("/");
+  };
+  const [user, setUser] = useState(null);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+    setTimeout(() => {
+      if (!currentUser) {
+        setNavbarVisible(false);
+        redirect();
+      }
+    }, 1000);
+  });
   return (
     <motion.section
       className="app-section"
@@ -49,7 +68,7 @@ function Scores({ close, setClose }) {
 const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 0;
   width: 150vw;
   height: 150vh;
   background: #fffebf;

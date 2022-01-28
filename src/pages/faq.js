@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+
 import {
   pageAnimation,
   titleAnim,
@@ -8,6 +9,10 @@ import {
   showAnim,
 } from "../logic/animations";
 import styled from "styled-components";
+import { auth } from "../logic/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const questionsAnswers = [
   {
@@ -34,7 +39,22 @@ const questionsAnswers = [
   },
 ];
 
-function Faq({ close, setClose }) {
+function Faq({ close, setClose , setNavbarVisible}) {
+  setNavbarVisible(true);
+  let navigate = useNavigate();
+  const redirect = () => {
+    navigate("/");
+  };
+  const [user, setUser] = useState(null);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+    setTimeout(() => {
+      if (!currentUser) {
+        setNavbarVisible(false);
+        redirect();
+      }
+    }, 1000);
+  });
   return (
     <motion.section
       className="app-section"
@@ -74,7 +94,7 @@ function Faq({ close, setClose }) {
 const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 0;
   width: 150vw;
   height: 150vh;
   background: #fffebf;
