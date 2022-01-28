@@ -7,9 +7,9 @@ function Info() {
       <Card>
         <CardContent>
           <Row>
-            <Digit>8</Digit>
+            <Digit>08</Digit>
             <InfoContainer>
-              <Title>College Rank</Title>
+              <Title>Paid Registrations</Title>
               <SubTitle>In top 20%</SubTitle>
             </InfoContainer>
           </Row>
