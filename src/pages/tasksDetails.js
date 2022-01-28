@@ -119,7 +119,7 @@ function TaskDetails({ close, setClose }) {
                     <div className="tw-justify-center tw-card-actions tw-pt-2">
                       <label
                         className={`tw-btn tw-btn-wide ${
-                          upload_file ? "tw-disabled tw-cursor-not-allowed" : ""
+                          upload_file ? "tw-btn-disabled" : ""
                         }`}
                       >
                         {upload_file

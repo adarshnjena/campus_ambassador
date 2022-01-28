@@ -17,7 +17,7 @@ function Task({ seeAll }) {
         // added cur_index
         .map((proj, cur_index) => {
           return (
-            <Project>
+            <Project key={cur_index}>
               <ProjectDetails to={`/taskdetails?task_id=${cur_index}`}>
                 <Avatar>
                   <img src={proj.img} alt="" />
