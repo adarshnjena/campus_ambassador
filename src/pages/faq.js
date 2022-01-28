@@ -26,7 +26,7 @@ const questionsAnswers = [
   },
   {
     question: "Can I cancel my subscription?",
-    answer: `Yes! Send us a message and we’ll process your request no questions asked.`,
+    answer: `Yes! Send us a message and we&apos;ll process your request no questions asked.`,
   },
   {
     question: "Do you provide additional support?",
@@ -60,7 +60,7 @@ function Faq({ close, setClose }) {
           }}
           className="bx bx-menu"
         ></i>
-        <span className="text">FAQ's</span>
+        <span className="text">FAQs</span>
       </motion.div>
       <motion.div variants={showAnim}>
         <div className="mainDiv">

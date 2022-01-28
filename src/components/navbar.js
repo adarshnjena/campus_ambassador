@@ -82,13 +82,13 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
               }}
               to="/faq"
             >
-              <i class="bx bx-question-mark"></i>
-              <span className="link_name">FAQ's</span>
+              <i className="bx bx-question-mark"></i>
+              <span className="link_name">FAQs</span>
             </NavLink>
             <ul className="sub-menu blank">
               <li>
                 <Link to="#" className="link_name">
-                  FAQ's
+                  FAQs
                 </Link>
               </li>
             </ul>
@@ -130,7 +130,7 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
               }}
               to="/scores"
             >
-              <i class="bx bx-line-chart"></i>
+              <i className="bx bx-line-chart"></i>
               <span className="link_name">Scores</span>
             </NavLink>
             <ul className="sub-menu blank">

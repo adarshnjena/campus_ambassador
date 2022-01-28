@@ -119,7 +119,7 @@ function TaskDetails({ close, setClose }) {
                     <div className="tw-justify-center tw-card-actions tw-pt-2">
                       <label
                         className={`tw-btn tw-btn-wide ${
-                          upload_file ? "tw-btn-disabled" : ""
+                          upload_file ? "tw-btn-info" : ""
                         }`}
                       >
                         {upload_file
@@ -128,18 +128,20 @@ function TaskDetails({ close, setClose }) {
                         <input
                           onChange={(e) => {
                             set_upload_file(e.target.value);
-                            console.log(upload_file);
+                            
                           }}
                           type="file"
                           id="src"
                           name="src"
                           required
-                          className="tw-hidden"
+                          className="tw-hidden tw-loading"
                         />
                       </label>
                       <button
                         onClick={(e) => {
                           console.log(e);
+                          e.target.classList += "tw-btn-success "
+                          // add tw-btn-success or tw-btn-error depending on ok or not
                         }}
                         className={`tw-btn tw-btn-info ${
                           upload_file ? "" : "tw-hidden"
