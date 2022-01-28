@@ -27,18 +27,16 @@ function App() {
         <></>
       )}
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route
-          path="/"
+          path="/home"
           element={
-            <Login
-              navbarVisible={navbarVisible}
+            <Home
+              close={close}
+              setClose={setClose}
               setNavbarVisible={setNavbarVisible}
             />
           }
-        />
-        <Route
-          path="/home"
-          element={<Home close={close} setClose={setClose} />}
         />
         <Route
           path="/tasks"

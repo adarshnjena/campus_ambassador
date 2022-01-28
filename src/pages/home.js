@@ -14,7 +14,8 @@ import { FiSearch } from "react-icons/fi";
 import Info from "../components/Info";
 import CaCodeCard from "../components/caCode";
 import CaLink from "../components/CaLink";
-function Home({ close, setClose }) {
+function Home({ close, setClose, setNavbarVisible }) {
+  setNavbarVisible(true);
   return (
     <motion.section
       className="app-section"
