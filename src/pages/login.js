@@ -13,11 +13,14 @@ import styled from "styled-components";
 // * Start of Firebase
 import "firebaseui/dist/firebaseui.css";
 // Import the functions you need from the SDKs you need
-import { GoogleAuthProvider, EmailAuthProvider, PhoneAuthProvider} from 'firebase/auth'
-import {auth as fui_auth} from 'firebaseui'
-import { firebaseapp, firebaseauth } from '../logic/firebase'
+import {
+  GoogleAuthProvider,
+  EmailAuthProvider,
+  PhoneAuthProvider,
+} from "firebase/auth";
+import { auth as fui_auth } from "firebaseui";
+import { firebaseapp, firebaseauth } from "../logic/firebase";
 // * End of Firebase
-
 
 function Login({ navbarVisible, setNavbarVisible }) {
   const slideLeft = () => {
@@ -33,13 +36,14 @@ function Login({ navbarVisible, setNavbarVisible }) {
   useEffect(() => {
     var uiConfig = {
       callbacks: {
-        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+        
+        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
           // User successfully signed in.
-          setNavbarVisible(true);
+          setNavbarVisible(!navbarVisible);
           return true;
-        }
+        },
       },
-      signInSuccessUrl: '/home',
+      signInSuccessUrl: "/home",
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         GoogleAuthProvider.PROVIDER_ID,
@@ -50,7 +54,7 @@ function Login({ navbarVisible, setNavbarVisible }) {
         PhoneAuthProvider.PROVIDER_ID,
         //firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
       ],
-      defaultCountry: 'IN',
+      defaultCountry: "IN",
       // tosUrl and privacyPolicyUrl accept either url string or a callback
       // function.
       // Terms of service url/callback.
@@ -64,8 +68,8 @@ function Login({ navbarVisible, setNavbarVisible }) {
     // Initialize the FirebaseUI Widget using Firebase.
     var ui = new fui_auth.AuthUI(firebaseauth);
     // The start method will wait until the DOM is loaded.
-    ui.start('#signin-signup', uiConfig);
-  }, [])
+    ui.start("#signin-signup", uiConfig);
+  }, []);
   useEffect(() => {
     if (firebaseauth.currentUser) {
       setNavbarVisible(true);

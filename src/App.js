@@ -27,7 +27,15 @@ function App() {
         <></>
       )}
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <Login
+              navbarVisible={navbarVisible}
+              setNavbarVisible={setNavbarVisible}
+            />
+          }
+        />
         <Route
           path="/home"
           element={
