@@ -1,4 +1,4 @@
-import React from 'react'; // Fix for undefined
+import React from "react"; // Fix for undefined
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../logic/animations";
@@ -80,15 +80,15 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
                   backgroundColor: isActive ? "black" : "#11101d",
                 };
               }}
-              to="/analytics"
+              to="/faq"
             >
-              <i className="bx bx-analyse"></i>
-              <span className="link_name">analytics</span>
+              <i class="bx bx-question-mark"></i>
+              <span className="link_name">FAQ's</span>
             </NavLink>
             <ul className="sub-menu blank">
               <li>
                 <Link to="#" className="link_name">
-                  analytics
+                  FAQ's
                 </Link>
               </li>
             </ul>
@@ -128,15 +128,15 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
                   backgroundColor: isActive ? "black" : "#11101d",
                 };
               }}
-              to="/team"
+              to="/scores"
             >
-              <i className="bx bx-calendar"></i>
-              <span className="link_name">Calendar</span>
+              <i class="bx bx-line-chart"></i>
+              <span className="link_name">Scores</span>
             </NavLink>
             <ul className="sub-menu blank">
               <li>
                 <Link to="#" className="link_name">
-                  Calendar
+                  Scores
                 </Link>
               </li>
             </ul>

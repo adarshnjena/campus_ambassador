@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useState } from "react";
 import Home from "./pages/home";
 import "./style/app.scss";
@@ -7,6 +7,9 @@ import { Routes, Route } from "react-router-dom";
 import Tasks from "./pages/tasks";
 import TaskDetails from "./pages/tasksDetails";
 import Login from "./pages/login";
+import Faq from "./pages/faq";
+import Scores from "./pages/scores";
+import Team from "./pages/team";
 
 function App() {
   const [close, setClose] = useState(true);
@@ -25,6 +28,15 @@ function App() {
       )}
       <Routes>
         <Route
+          path="/"
+          element={
+            <Login
+              navbarVisible={navbarVisible}
+              setNavbarVisible={setNavbarVisible}
+            />
+          }
+        />
+        <Route
           path="/home"
           element={<Home close={close} setClose={setClose} />}
         />
@@ -33,29 +45,20 @@ function App() {
           element={<Tasks close={close} setClose={setClose} />}
         />
         <Route
-          path="/analytics"
-          element={<Home close={close} setClose={setClose} />}
-        />
-        <Route
           path="/team"
-          element={<Home close={close} setClose={setClose} />}
+          element={<Team close={close} setClose={setClose} />}
         />
         <Route
-          path="/calendar"
-          element={<Home close={close} setClose={setClose} />}
+          path="/faq"
+          element={<Faq close={close} setClose={setClose} />}
+        />
+        <Route
+          path="/scores"
+          element={<Scores close={close} setClose={setClose} />}
         />
         <Route
           path="/taskdetails"
           element={<TaskDetails close={close} setClose={setClose} />}
-        />
-        <Route
-          path="/"
-          element={
-            <Login
-              navbarVisible={navbarVisible}
-              setNavbarVisible={setNavbarVisible}
-            />
-          }
         />
       </Routes>
     </div>
