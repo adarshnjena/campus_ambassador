@@ -14,36 +14,13 @@ import styled from "styled-components";
 // * Start of Firebase
 import 'firebaseui/dist/firebaseui.css';
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import {getAuth,GoogleAuthProvider, EmailAuthProvider, PhoneAuthProvider} from 'firebase/auth'
+import { GoogleAuthProvider, EmailAuthProvider, PhoneAuthProvider} from 'firebase/auth'
 import {auth as fui_auth} from 'firebaseui'
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-const firebaseConfig = {
-  // create a .env with the proper key
-  apiKey: "AIzaSyCEh7vHPOJBbmCIZ_pHOqLnDBsKh5-UHBQ",
-  authDomain: "adhyaaya-dev-env.firebaseapp.com",
-  projectId: "adhyaaya-dev-env",
-  storageBucket: "adhyaaya-dev-env.appspot.com",
-  messagingSenderId: "299413973703",
-  appId: "1:299413973703:web:76d391cfe68069db132ce2",
-  measurementId: "G-Z9Z1GHE65D"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+import { firebaseapp, firebaseauth } from '../logic/firebase'
 // * End of Firebase
 
 
-function Login({ _, setNavbarVisible }) {
+function Login({ navbarVisible, setNavbarVisible }) {
   const slideLeft = () => {
     let container = document.getElementById("container");
     container.classList.add("sign-up-mode");
@@ -55,8 +32,14 @@ function Login({ _, setNavbarVisible }) {
   };
 
   useEffect(() => {
-    console.log("bruh")
     var uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          setNavbarVisible(true);
+          return true;
+        }
+      },
       signInSuccessUrl: '/home',
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
@@ -68,6 +51,7 @@ function Login({ _, setNavbarVisible }) {
         PhoneAuthProvider.PROVIDER_ID,
         //firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
       ],
+      defaultCountry: 'IN',
       // tosUrl and privacyPolicyUrl accept either url string or a callback
       // function.
       // Terms of service url/callback.
@@ -79,10 +63,15 @@ function Login({ _, setNavbarVisible }) {
     };
 
     // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new fui_auth.AuthUI(getAuth(app));
+    var ui = new fui_auth.AuthUI(firebaseauth);
     // The start method will wait until the DOM is loaded.
     ui.start('#signin-signup', uiConfig);
   }, [])
+  useEffect(() => {
+    if (firebaseauth.currentUser) {
+      setNavbarVisible(true);
+    }
+  }, [firebaseauth, firebaseauth.currentUser]);
   return (
     <motion.div variants={loginAnim} initial="hidden" animate="show">
       <motion.div variants={sliderContainer}>
