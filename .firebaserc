@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "fir-d7cd8"
-  }
+    "default": "fir-d7cd8",
+    "dev": "adhyaaya-dev-env"
+  },
+  "targets": {}
 }

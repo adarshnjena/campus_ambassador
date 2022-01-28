@@ -20,5 +20,8 @@
         "only-warn"
     ],
     "rules": {
+        "react/prop-types": 0,
+        // Controversial 
+        "no-unused-vars": 0
     }
 }
