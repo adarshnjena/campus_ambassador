@@ -14,8 +14,17 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import FaqComponent from "../components/faq-form";
+import Faq from "../components/faqDropDown";
+import { faqData } from "../utils/faqData";
 
-function Faq({ close, setClose, setNavbarVisible }) {
+
+const config = {
+  animate: true,
+  arrowIcon: "V",
+  tabFocus: true,
+};
+
+function FaqPage({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
   let navigate = useNavigate();
   const redirect = () => {
@@ -59,7 +68,20 @@ function Faq({ close, setClose, setNavbarVisible }) {
         <span className="text">FAQs</span>
       </motion.div>
       <motion.div variants={showAnim}>
-        <FaqComponent></FaqComponent>
+        <div className="tw-container tw-card tw-mx-4 tw-my-8"></div>
+        <div className="tw-card lg:tw-card-side tw-card-bordered">
+          <div className="tw-card-body tw-container">
+            <h2 className="tw-card-title tw-container"></h2>
+            {faqData.rows.map((item, i) => {
+              return (
+                <Faq key={i} title={item.title} data={item.content} />
+              )
+            })}
+            <div className="tw-card-actions">
+              <button className="tw-btn tw-btn-primary">Have a question not listed above ?</button>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </motion.section>
   );
@@ -84,4 +106,4 @@ const Frame4 = styled(Frame1)`
   background: #8effa0;
 `;
 
-export default Faq;
+export default FaqPage;
