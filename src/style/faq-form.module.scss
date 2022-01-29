@@ -63,10 +63,8 @@
 
 .signin-signup {
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 75%;
-  width: 50%;
+  top: 90% !important;
+  width: 90vw !important;
   transition: 0.25s 0.175s ease-in-out;
   display: grid;
   grid-template-columns: 1fr;
@@ -356,7 +354,7 @@ form.faq_section {
   }
   .signin-signup {
     width: 100%;
-    top: 107%;
+    top: 95% !important;
     transform: translate(-50%, -100%);
     transition: 0.25s 0.2s ease-in-out;
   }
@@ -491,6 +489,6 @@ form.faq_section {
     top: 0;
   }
   .wrapper {
-    margin: 7rem 0 0 0;
+    margin: 0;
   }
 }

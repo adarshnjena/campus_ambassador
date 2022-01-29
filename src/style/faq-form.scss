@@ -1,14 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
 * {
-  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+}
+body,
+textarea {
+  font-family: "Poppins", sans-serif;
 }
 
 .wrapper {
   display: flex;
-  height: 100%;
+  height: 90vh !important;
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  margin: 0 0 0 5rem;
+  margin: 7rem 0 0 5rem !important;
 }
 
 .accordian {
@@ -495,6 +508,6 @@ form.faq_section {
     top: 0;
   }
   .wrapper {
-    margin: 7rem 0 0 0;
+    margin: 7rem 0 0 0 !important;
   }
 }

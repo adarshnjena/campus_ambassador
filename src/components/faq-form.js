@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function Faq() {
   const [selected, setSelected] = useState(null);
-  const onClickButton = (e) => {
-    e.preventDefault();
-  };
   let navigate = useNavigate();
   const redirect = () => {
     navigate("/");
@@ -22,7 +19,7 @@ export default function Faq() {
   };
   return (
     <div>
-      <div id="container">
+      <div id={styles["container"]}>
         <div className={styles["forms-container"]}>
           <div className={styles["signin-signup"]}>
             <form className={styles["faq_section"]}>
