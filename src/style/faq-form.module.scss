@@ -63,8 +63,10 @@
 
 .signin-signup {
   position: absolute;
-  top: 90% !important;
-  width: 90vw !important;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 75%;
+  width: 50%;
   transition: 0.25s 0.175s ease-in-out;
   display: grid;
   grid-template-columns: 1fr;
@@ -348,13 +350,17 @@ form.faq_section {
   pointer-events: all;
 }
 @media (max-width: 870px) {
+  .signin-signup {
+    top: 95% !important;
+  }
+
   #container {
     min-height: 800px;
     height: 100vh;
   }
   .signin-signup {
     width: 100%;
-    top: 95% !important;
+    top: 107%;
     transform: translate(-50%, -100%);
     transition: 0.25s 0.2s ease-in-out;
   }
@@ -489,6 +495,6 @@ form.faq_section {
     top: 0;
   }
   .wrapper {
-    margin: 0;
+    margin: 7rem 0 0 0;
   }
 }
