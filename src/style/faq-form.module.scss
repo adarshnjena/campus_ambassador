@@ -1,27 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body,
-input {
-  font-family: "Poppins", sans-serif;
-}
-body,
-textarea {
-  font-family: "Poppins", sans-serif;
-}
-
 .wrapper {
   display: flex;
-  height: 90vh;
+  height: 70vh;
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  margin: 7rem 0 0 5rem;
 }
 
 .accordian {
@@ -365,8 +349,11 @@ sign-up-mode:before {
 #container.sign-up-mode .right-panel {
   pointer-events: all;
 }
-
 @media (max-width: 870px) {
+  .signin-signup {
+    top: 95% !important;
+  }
+
   #container {
     min-height: 800px;
     height: 100vh;
@@ -475,7 +462,7 @@ sign-up-mode:before {
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 500px) {
   form {
     padding: 0 1.5rem;
   }

@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function Faq() {
   const [selected, setSelected] = useState(null);
-  const onClickButton = (e) => {
-    e.preventDefault();
-  };
   let navigate = useNavigate();
   const redirect = () => {
     navigate("/");
