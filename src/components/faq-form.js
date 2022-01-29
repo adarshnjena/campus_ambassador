@@ -1,5 +1,6 @@
 import React from "react";
-import "../style/faq-form.scss";
+//import "../style/faq-form.scss";
+import styles from '../style/faq-form.module.css'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,31 +23,31 @@ export default function Faq() {
 
   const slideLeft = () => {
     let container = document.getElementById("container");
-    container.classList.add("sign-up-mode");
+    container.classList.add(styles["sign-up-mode"]);
   };
 
   const slideRight = () => {
     let container = document.getElementById("container");
-    container.classList.remove("sign-up-mode");
+    container.classList.remove(styles["sign-up-mode"]);
   };
   return (
     <div>
       <div id="container">
-        <div className="forms-container">
-          <div className="signin-signup">
-            <form className="faq_section">
-              <div className="wrapper">
-                <h2 className="title">FAQs</h2>
-                <div className="accordian">
+        <div className={styles["forms-container"]}>
+          <div className={styles["signin-signup"]}>
+            <form className={styles["faq_section"]}>
+              <div className={styles["wrapper"]}>
+                <h2 className={styles["title"]}>FAQs</h2>
+                <div className={styles["accordian"]}>
                   {data.map((item, i) => (
-                    <div key={i} className="item">
-                      <div className="faq_title" onClick={() => toggle(i)}>
+                    <div key={i} className={styles["item"]}>
+                      <div className={styles["faq_title"]} onClick={() => toggle(i)}>
                         <h2>{item.question}</h2>
                         <span>{selected === i ? "-" : "+"}</span>
                       </div>
 
                       <div
-                        className={selected === i ? "content show" : "content"}
+                        className={selected === i ? `${styles["content"]} ${styles["show"]}` : styles["content"]}
                       >
                         {item.answer}
                       </div>
