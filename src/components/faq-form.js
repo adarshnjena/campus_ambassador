@@ -1,6 +1,6 @@
 import React from "react";
 //import "../style/faq-form.scss";
-import styles from '../style/faq-form.module.css'
+import styles from "../style/faq-form.module.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -43,13 +43,20 @@ export default function Faq() {
                 <div className={styles["accordian"]}>
                   {data.map((item, i) => (
                     <div key={i} className={styles["item"]}>
-                      <div className={styles["faq_title"]} onClick={() => toggle(i)}>
+                      <div
+                        className={styles["faq_title"]}
+                        onClick={() => toggle(i)}
+                      >
                         <h2>{item.question}</h2>
                         <span>{selected === i ? "-" : "+"}</span>
                       </div>
 
                       <div
-                        className={selected === i ? `${styles["content"]} ${styles["show"]}` : styles["content"]}
+                        className={
+                          selected === i
+                            ? `${styles["content"]} ${styles["show"]}`
+                            : styles["content"]
+                        }
                       >
                         {item.answer}
                       </div>
