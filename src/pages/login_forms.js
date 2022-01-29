@@ -14,6 +14,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  updateProfile,
   signOut,
 } from "firebase/auth";
 import { auth, signInWithGoogle } from "../logic/firebase";
@@ -53,13 +54,17 @@ function Form() {
 
   const register = async () => {
     try {
-      const user = await createUserWithEmailAndPassword(
+      const result = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
       );
-      console.log(user);
-      redirect(user);
+      const result2 = await updateProfile(result.user, {
+        displayName: registerName,
+      });
+      console.log(result);
+      console.log(result2);
+      redirect(result);
     } catch (error) {
       console.log(error.message);
     }
@@ -67,13 +72,13 @@ function Form() {
 
   const login = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
+      const result = await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPassword
       );
-      console.log(user);
-      redirect(user);
+      console.log(result);
+      redirect(result);
     } catch (error) {
       console.log(error.message);
     }
