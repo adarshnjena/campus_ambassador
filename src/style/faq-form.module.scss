@@ -17,10 +17,11 @@ textarea {
 
 .wrapper {
   display: flex;
-  height: 70vh;
+  height: 90vh;
   flex-direction: column;
   justify-content: center;
   align-items: left;
+  margin: 7rem 0 0 5rem;
 }
 
 .accordian {
@@ -364,11 +365,7 @@ sign-up-mode:before {
 #container.sign-up-mode .right-panel {
   pointer-events: all;
 }
-.faq-app-navbar {
-  position: absolute;
-  visibility: none;
-  opacity: 0;
-}
+
 @media (max-width: 870px) {
   #container {
     min-height: 800px;
@@ -478,12 +475,7 @@ sign-up-mode:before {
   }
 }
 
-@media (max-width: 500px) {
-  .faq-app-navbar {
-    position: relative;
-    visibility: visible;
-    opacity: 1;
-  }
+@media (max-width: 570px) {
   form {
     padding: 0 1.5rem;
   }
