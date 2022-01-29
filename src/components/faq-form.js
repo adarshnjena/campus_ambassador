@@ -20,16 +20,6 @@ export default function Faq() {
 
     setSelected(i);
   };
-
-  const slideLeft = () => {
-    let container = document.getElementById("container");
-    container.classList.add("sign-up-mode");
-  };
-
-  const slideRight = () => {
-    let container = document.getElementById("container");
-    container.classList.remove("sign-up-mode");
-  };
   return (
     <div>
       <div id="container">
@@ -63,48 +53,11 @@ export default function Faq() {
                 </div>
               </div>
             </form>
-            <form action="/" className={styles["contact_form"]}>
-              <h2 className={styles["title"]}>Contact Form</h2>
-              <div className={styles["input-field"]}>
-                <i className="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
-              </div>
-              <div className={styles["input-field"]}>
-                <i className="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div className={styles["input-field"]}>
-                <i className="fas fa-mobile-alt"></i>
-                <input type="number" placeholder="Phone No." />
-              </div>
-              <div className={styles["input-field"]}>
-                <i className="fas fa-lock"></i>
-                <input type="text" placeholder="code" />
-              </div>
-              <div className={styles["input-field"]}>
-                <i className="fas fa-comments"></i>
-
-                <textarea
-                  cols="5"
-                  rows="5"
-                  placeholder="Type your question "
-                ></textarea>
-              </div>
-              <input
-                type="submit"
-                className={styles["btn"]}
-                value="Submit"
-                onClick={(e) => {
-                  onClickButton(e);
-                  redirect();
-                }}
-              />
-            </form>
           </div>
         </div>
 
         <div className={styles["panels-container"]}>
-          <div className="panel left-panel">
+          <div className={`${styles["panel"]} ${styles["left-panel"]}`}>
             <div className={styles["content1"]}>
               <h3>Have a new quetion ?</h3>
               <p>
@@ -112,8 +65,7 @@ export default function Faq() {
                 Debitis, ex ratione. Aliquid!
               </p>
               <button
-                onClick={slideLeft}
-                className="btn transparent"
+                className={`${styles["btn"]} ${styles["transparent"]}`}
                 id="sign-up-btn"
               >
                 Ask question
@@ -121,28 +73,7 @@ export default function Faq() {
             </div>
             <img
               src="https://actiserp.com/wp-content/uploads/admin/2019/07/undraw_newsletter_vovu.png"
-              className="image"
-              alt=""
-            />
-          </div>
-          <div className="panel right-panel">
-            <div className={styles["content1"]}>
-              <h3>Find your answer here?</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                laboriosam ad deleniti.
-              </p>
-              <button
-                onClick={slideRight}
-                className="btn transparent"
-                id="sign-in-btn"
-              >
-                Find answer
-              </button>
-            </div>
-            <img
-              src="https://www.virgosix.com/img/v34.png"
-              className="image"
+              className={styles["image"]}
               alt=""
             />
           </div>
