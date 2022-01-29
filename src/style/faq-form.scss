@@ -1,20 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body,
-input {
-  font-family: "Poppins", sans-serif;
-}
-body,
-textarea {
-  font-family: "Poppins", sans-serif;
-}
-
 .wrapper {
   display: flex;
   height: 70vh;
@@ -171,38 +156,6 @@ form.faq_section {
 .input-field textarea::placeholder {
   color: #aaa;
   font-weight: 500;
-}
-
-.social-text {
-  padding: 0.7rem 0;
-  font-size: 1rem;
-}
-
-.social-media {
-  display: flex;
-  justify-content: center;
-}
-
-.social-icon {
-  height: 46px;
-  width: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0.45rem;
-  color: #333;
-  border-radius: 50%;
-  border: 1px solid #333;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.075s;
-}
-
-.social-icon:hover {
-  color: rgb(97, 0, 212);
-  box-shadow: -2px 0px 20px 1px rgba(124, 119, 119, 0.75);
-  -webkit-box-shadow: -2px 0px 20px 1px rgba(124, 119, 119, 0.75);
-  -moz-box-shadow: -2px 0px 20px 1px rgba(124, 119, 119, 0.75);
 }
 
 .btn {
