@@ -142,7 +142,7 @@ function Form() {
                       <i className="fab fa-linkedin-in"></i>
                     </a> */}
                     <button
-                      class="login-with-google-btn"
+                      className="login-with-google-btn"
                       onClick={(e) => {
                         onClickButton(e);
                         signInWithGoogle();
@@ -205,7 +205,7 @@ function Form() {
                       <i className="fab fa-linkedin-in"></i>
                     </a> */}
                     <button
-                      class="login-with-google-btn"
+                      className="login-with-google-btn"
                       onClick={(e) => {
                         onClickButton(e);
                         signInWithGoogle();
