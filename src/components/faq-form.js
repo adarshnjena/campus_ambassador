@@ -1,6 +1,6 @@
 import React from "react";
 //import "../style/faq-form.scss";
-import styles from "../style/faq-form.module.css";
+import styles from "../style/faq-form.module.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
