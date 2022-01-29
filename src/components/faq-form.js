@@ -36,10 +36,10 @@ export default function Faq() {
           <div className="signin-signup">
             <form className="faq_section">
               <div className="wrapper">
-                <h2 className="title">Faq's</h2>
+                <h2 className="title">FAQs</h2>
                 <div className="accordian">
                   {data.map((item, i) => (
-                    <div className="item">
+                    <div key={i} className="item">
                       <div className="faq_title" onClick={() => toggle(i)}>
                         <h2>{item.question}</h2>
                         <span>{selected === i ? "-" : "+"}</span>
@@ -66,7 +66,7 @@ export default function Faq() {
                 <input type="email" placeholder="Email" />
               </div>
               <div className="input-field">
-                <i class="fas fa-mobile-alt"></i>
+                <i className="fas fa-mobile-alt"></i>
                 <input type="number" placeholder="Phone No." />
               </div>
               <div className="input-field">
@@ -74,7 +74,7 @@ export default function Faq() {
                 <input type="text" placeholder="code" />
               </div>
               <div className="input-field">
-                <i class="fas fa-comments"></i>
+                <i className="fas fa-comments"></i>
 
                 <textarea
                   cols="5"
