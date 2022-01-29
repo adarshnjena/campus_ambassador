@@ -23,12 +23,12 @@ export default function Faq() {
 
   const slideLeft = () => {
     let container = document.getElementById("container");
-    container.classList.add(styles["sign-up-mode"]);
+    container.classList.add("sign-up-mode");
   };
 
   const slideRight = () => {
     let container = document.getElementById("container");
-    container.classList.remove(styles["sign-up-mode"]);
+    container.classList.remove("sign-up-mode");
   };
   return (
     <div>
@@ -63,25 +63,25 @@ export default function Faq() {
                 </div>
               </div>
             </form>
-            <form action="/" className="contact_form">
-              <h2 className="title">Contact Form</h2>
-              <div className="input-field">
+            <form action="/" className={styles["contact_form"]}>
+              <h2 className={styles["title"]}>Contact Form</h2>
+              <div className={styles["input-field"]}>
                 <i className="fas fa-user"></i>
                 <input type="text" placeholder="Username" />
               </div>
-              <div className="input-field">
+              <div className={styles["input-field"]}>
                 <i className="fas fa-envelope"></i>
                 <input type="email" placeholder="Email" />
               </div>
-              <div className="input-field">
+              <div className={styles["input-field"]}>
                 <i className="fas fa-mobile-alt"></i>
                 <input type="number" placeholder="Phone No." />
               </div>
-              <div className="input-field">
+              <div className={styles["input-field"]}>
                 <i className="fas fa-lock"></i>
                 <input type="text" placeholder="code" />
               </div>
-              <div className="input-field">
+              <div className={styles["input-field"]}>
                 <i className="fas fa-comments"></i>
 
                 <textarea
@@ -92,7 +92,7 @@ export default function Faq() {
               </div>
               <input
                 type="submit"
-                className="btn"
+                className={styles["btn"]}
                 value="Submit"
                 onClick={(e) => {
                   onClickButton(e);
@@ -103,9 +103,9 @@ export default function Faq() {
           </div>
         </div>
 
-        <div className="panels-container">
+        <div className={styles["panels-container"]}>
           <div className="panel left-panel">
-            <div className="content1">
+            <div className={styles["content1"]}>
               <h3>Have a new quetion ?</h3>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -126,7 +126,7 @@ export default function Faq() {
             />
           </div>
           <div className="panel right-panel">
-            <div className="content1">
+            <div className={styles["content1"]}>
               <h3>Find your answer here?</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
