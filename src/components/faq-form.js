@@ -21,18 +21,20 @@ export default function Faq() {
     setSelected(i);
   };
 
-  const slideLeft = () => {
+  const slideLeft = (e) => {
     let container = document.getElementById("container");
+    console.log(e, 'left')
     container.classList.add(styles["sign-up-mode"]);
   };
 
-  const slideRight = () => {
+  const slideRight = (e) => {
     let container = document.getElementById("container");
+    console.log(e, 'right')
     container.classList.remove(styles["sign-up-mode"]);
   };
   return (
     <div>
-      <div id="container">
+      <div id="container" className={`${styles['container']}`}>
         <div className={styles["forms-container"]}>
           <div className={styles["signin-signup"]}>
             <form className={styles["faq_section"]}>
@@ -56,25 +58,25 @@ export default function Faq() {
                 </div>
               </div>
             </form>
-            <form action="/" className="contact_form">
-              <h2 className="title">Contact Form</h2>
-              <div className="input-field">
+            <form action="/" className={`${styles["faq_title"]}`}>
+              <h2 className={`${styles["title"]}`}>Contact Form</h2>
+              <div className={`${styles["input-field"]}`}>
                 <i className="fas fa-user"></i>
                 <input type="text" placeholder="Username" />
               </div>
-              <div className="input-field">
+              <div className={`${styles["input-field"]}`}>
                 <i className="fas fa-envelope"></i>
                 <input type="email" placeholder="Email" />
               </div>
-              <div className="input-field">
+              <div className={`${styles["input-field"]}`}>
                 <i className="fas fa-mobile-alt"></i>
                 <input type="number" placeholder="Phone No." />
               </div>
-              <div className="input-field">
+              <div className={`${styles["input-field"]}`}>
                 <i className="fas fa-lock"></i>
                 <input type="text" placeholder="code" />
               </div>
-              <div className="input-field">
+              <div className={`${styles["input-field"]}`}>
                 <i className="fas fa-comments"></i>
 
                 <textarea
@@ -96,9 +98,9 @@ export default function Faq() {
           </div>
         </div>
 
-        <div className="panels-container">
-          <div className="panel left-panel">
-            <div className="content1">
+        <div className={`${styles["panels-container"]}`}>
+          <div className={`${styles["panel"]} ${styles["left-panel"]}`}>
+            <div className={`${styles["content1"]}`} >
               <h3>Have a new quetion ?</h3>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -106,7 +108,7 @@ export default function Faq() {
               </p>
               <button
                 onClick={slideLeft}
-                className="btn transparent"
+                className={`${styles["transparent"]} ${styles["btn"]}`}
                 id="sign-up-btn"
               >
                 Ask question
@@ -114,12 +116,12 @@ export default function Faq() {
             </div>
             <img
               src="https://actiserp.com/wp-content/uploads/admin/2019/07/undraw_newsletter_vovu.png"
-              className="image"
+              className={`${styles["image"]}`}
               alt=""
             />
           </div>
-          <div className="panel right-panel">
-            <div className="content1">
+          <div className={`${styles["panel"]} ${styles["right-panel"]}`}>
+            <div className={`${styles["content1"]}`}>
               <h3>Find your answer here?</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
@@ -127,7 +129,7 @@ export default function Faq() {
               </p>
               <button
                 onClick={slideRight}
-                className="btn transparent"
+                className={`${styles["transparent"]} ${styles["btn"]}`}
                 id="sign-in-btn"
               >
                 Find answer
@@ -135,7 +137,7 @@ export default function Faq() {
             </div>
             <img
               src="https://www.virgosix.com/img/v34.png"
-              className="image"
+              className={`${styles["image"]}`}
               alt=""
             />
           </div>
