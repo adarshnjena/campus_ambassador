@@ -58,11 +58,10 @@ export default function Faq() {
             <div className={styles["content1"]}>
               <h3>Have a new quetion ?</h3>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Debitis, ex ratione. Aliquid!
+                  Feel free to contact us on our support email : <br /> <div className="tw-p-2 tw-max-w-min tw-mx-auto">ca_support@adhyaaya.tf</div>
               </p>
               <button
-                className={`${styles["btn"]} ${styles["transparent"]}`}
+                className={`${styles["btn"]} tw-hidden ${styles["transparent"]}`}
                 id="sign-up-btn"
               >
                 Ask question
