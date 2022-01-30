@@ -9,7 +9,27 @@ import {
 } from "../logic/animations";
 import styled from "styled-components";
 import Task from "../components/Project";
-function Tasks({ close, setClose }) {
+import { auth } from "../logic/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+
+function Tasks({ close, setClose, setNavbarVisible }) {
+  let navigate = useNavigate();
+  const redirect = () => {
+    navigate("/");
+  };
+  const [user, setUser] = useState(null);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+    setTimeout(() => {
+      if (!currentUser) {
+        setNavbarVisible(false);
+        redirect();
+      }
+    }, 1000);
+  });
   return (
     <motion.section
       className="app-section"

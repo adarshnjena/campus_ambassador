@@ -14,6 +14,10 @@ import projectData from "../utils/taskData";
 // Edits Below
 import { useLocation } from "react-router-dom";
 
+import { auth } from "../logic/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
 function useQuery() {
   const { search } = useLocation();
 
@@ -21,8 +25,23 @@ function useQuery() {
 }
 // End Edit
 
-function TaskDetails({ close, setClose }) {
-  // Edits Below
+function TaskDetails({ close, setClose, setNavbarVisible }) {
+  
+  let navigate = useNavigate();
+  const redirect = () => {
+    navigate("/");
+  };
+  const [user, setUser] = useState(null);
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+    setTimeout(() => {
+      if (!currentUser) {
+        setNavbarVisible(false);
+        redirect();
+      }
+    }, 1000);
+  });
+
   const _ref = useRef(null);
   useEffect(() => {
     if (!_ref.current) return;
