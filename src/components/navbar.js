@@ -1,5 +1,6 @@
 import React from "react"; // Fix for undefined
 import { Link, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../logic/animations";
 import { auth } from "../logic/firebase";
@@ -8,6 +9,10 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 
 function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
+  let navigate = useNavigate();
+  const redirect = () => {
+    navigate("/");
+  };
   const navToggelHandler = () => {
     setClose(true);
   };
@@ -152,13 +157,7 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
               </li>
             </ul>
           </li>
-          <Link
-            onClick={() => {
-              setNavbarVisible(false);
-              logout();
-            }}
-            to={"/"}
-          >
+          <Link to={"/profile"}>
             <li>
               <div className="profile-details">
                 <div className="profile-content">
@@ -168,9 +167,16 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
                   <div className="profile_name">
                     {user?.displayName || user?.email}
                   </div>
-                  <div className="job">Log Out</div>
+                  <div className="job">CA</div>
                 </div>
-                <i className="bx bx-log-out"></i>
+                <i
+                  onClick={() => {
+                    setNavbarVisible(false);
+                    logout();
+                    redirect();
+                  }}
+                  className="bx bx-log-out"
+                ></i>
               </div>
             </li>
           </Link>

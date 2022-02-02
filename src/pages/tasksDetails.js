@@ -26,7 +26,6 @@ function useQuery() {
 // End Edit
 
 function TaskDetails({ close, setClose, setNavbarVisible }) {
-  
   let navigate = useNavigate();
   const redirect = () => {
     navigate("/");
@@ -80,28 +79,24 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
         <span className="text">Task {task_id + 1}</span>
       </motion.div>
       <motion.div variants={showAnim}>
-        <section className="tw-hero">
-          <div className="tw-container md:tw-mt-5">
-            <div className="tw-flex tw-flex-col tw-text-center tw-w-full tw-mb-12">
-              <div className="tw-card tw-bg-gray-300 tw-rounded-t-none md:tw-rounded-t-3xl tw-max-w-7xl tw-self-center">
+        <section className="hero">
+          <div className="container md:mt-5">
+            <div className="flex flex-col text-center w-full mb-12">
+              <div className="card bg-gray-300 rounded-t-none md:rounded-t-3xl max-w-7xl self-center">
                 <div ref={_ref}></div>
-                <figure className="tw-px-10 tw-pt-10 tw-max-w-2xl tw-self-center">
+                <figure className="px-10 pt-10 max-w-2xl self-center">
                   <img
                     src={this_task.img}
                     alt="is-this-gud?"
-                    className="tw-rounded-xl tw-max-w-2xl"
+                    className="rounded-xl max-w-2xl"
                   />
                 </figure>
-                <div className="tw-card-body">
-                  <h2 className="tw-card-title tw-text-3xl">
-                    {this_task.title}
-                  </h2>
-                  <p className="tw-text-sm tw-text-gray-400">
-                    {this_task.subtitle}
-                  </p>
-                  <div className="lg:tw-w-1/2 md:tw-w-2/3 tw-mx-auto tw-pt-6">
-                    <div className="tw-flex tw-flex-wrap tw--mx-3 tw-mb-6">
-                      <div className="tw-w-full tw-text-justify tw-mx-auto tw-py-2 tw-px-2 tw-text-normal">
+                <div className="card-body">
+                  <h2 className="card-title text-3xl">{this_task.title}</h2>
+                  <p className="text-sm text-gray-400">{this_task.subtitle}</p>
+                  <div className="lg:w-1/2 md:w-2/3 mx-auto pt-6">
+                    <div className="flex flex-wrap -mx-3 mb-6">
+                      <div className="w-full text-justify mx-auto py-2 px-2 text-normal">
                         <span>
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore et
@@ -115,30 +110,26 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
                         </span>
                       </div>
                     </div>
-                    <div className="tw-justify-center tw-card-actions tw-pt-4">
+                    <div className="justify-center card-actions pt-4">
                       <span
-                        className={`tw-badge ${
-                          this_task.status
-                            ? "tw-badge-success"
-                            : "tw-badge-error"
+                        className={`badge ${
+                          this_task.status ? "badge-success" : "badge-error"
                         }`}
                       >
                         {this_task.status ? "Completed" : "Incomplete"}
                       </span>
                       <span
-                        className={`tw-badge ${
-                          this_task.late
-                            ? "tw-badge-warning"
-                            : "tw-badge-success"
+                        className={`badge ${
+                          this_task.late ? "badge-warning" : "badge-success"
                         }`}
                       >
                         {this_task.late ? "Late" : "On-Time"}
                       </span>
                     </div>
-                    <div className="tw-justify-center tw-card-actions tw-pt-2">
+                    <div className="justify-center card-actions pt-2">
                       <label
-                        className={`tw-btn tw-btn-wide ${
-                          upload_file ? "tw-btn-info" : ""
+                        className={`btn btn-wide ${
+                          upload_file ? "btn-info" : ""
                         }`}
                       >
                         {upload_file
@@ -152,25 +143,25 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
                           id="src"
                           name="src"
                           required
-                          className="tw-hidden tw-loading"
+                          className="hidden loading"
                         />
                       </label>
                       <button
                         onClick={(e) => {
                           console.log(e);
-                          e.target.classList += "tw-btn-success ";
-                          // add tw-btn-success or tw-btn-error depending on ok or not
+                          e.target.classList += "btn-success ";
+                          // add btn-success or btn-error depending on ok or not
                         }}
-                        className={`tw-btn tw-btn-info ${
-                          upload_file ? "" : "tw-hidden"
+                        className={`btn btn-info ${
+                          upload_file ? "" : "hidden"
                         }`}
                       >
                         Upload
                       </button>
                     </div>
                   </div>
-                  <div className="tw-justify-center tw-text-sm pt-6">
-                    <span className="tw-text-xs tw-text-gray-600">
+                  <div className="justify-center text-sm pt-6">
+                    <span className="text-xs text-gray-600">
                       Task ID: {this_task.id}
                     </span>
                   </div>

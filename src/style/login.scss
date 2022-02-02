@@ -330,6 +330,11 @@ form.sign-in-form {
 #container.sign-up-mode .right-panel {
   pointer-events: all;
 }
+.alertModel {
+  z-index: 100;
+  margin-bottom: 30px;
+  width: 50%;
+}
 
 @media (max-width: 870px) {
   #container {
@@ -457,5 +462,8 @@ form.sign-in-form {
   #container.sign-up-mode:before {
     bottom: 28%;
     left: 50%;
+  }
+  .alertModel {
+    width: 90%;
   }
 }

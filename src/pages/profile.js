@@ -1,6 +1,4 @@
 import React from "react";
-import styles from "../style/profile.module.scss";
-
 import { motion } from "framer-motion";
 import {
   pageAnimation,
@@ -14,6 +12,8 @@ import { auth } from "../logic/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import CardSettings from "../components/CardSettings";
+import CardProfile from "../components/CardProfile";
 
 function Profile({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
@@ -31,6 +31,7 @@ function Profile({ close, setClose, setNavbarVisible }) {
       }
     }, 1000);
   });
+  const [modelOpen, setModelOpen] = useState(false);
   return (
     <motion.section
       className="app-section"
@@ -59,96 +60,69 @@ function Profile({ close, setClose, setNavbarVisible }) {
         <span className="text"></span>
       </motion.div>
       <motion.div variants={showAnim}>
-        <div className={`${styles["profile"]}`}>
-          <form action="#" method="post">
-            <div className={`${styles["headerbg"]}`}></div>
-            <div className={`${styles["section_2"]}`}>
-              <div className={`${styles["border1"]}`}></div>
-              <img
-                className={`${styles["imgcircle"]}`}
-                src="https://picsum.photos/200"
-              ></img>
-              <div className={`${styles["title01"]}`}>
-                <h1>My Profile</h1>
-                <p>Update your photo and personal details.</p>
-              </div>
-              <div className={`${styles["button01"]}`}>
-                <button type="button" className={`${styles["cancel"]}`}>
-                  Cancel
-                </button>
-                <button type="submit" className={`${styles["save"]}`}>
-                  Save
-                </button>
-              </div>
+        {modelOpen ? (
+          <div
+            class="flex p-4 mb-4 bg-green-100 border-t-4 border-green-500 dark:bg-green-200"
+            role="alert"
+            style={{
+              margin: "auto",
+              position: "fixed",
+              top: "50px",
+              left: "0",
+              right: "0",
+              width: "70vw",
+              zIndex: "9999",
+            }}
+          >
+            <svg
+              class="flex-shrink-0 w-5 h-5 text-green-700"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <div class="ml-3 text-sm font-medium text-green-700">
+              Profile Updated Succefully
             </div>
-            <div className={`${styles["section_3"]}`}>
-              <h3>Name</h3>
-              <input
-                type="text"
-                name="name"
-                className={`${styles["name"]}`}
-                placeholder="your name"
-              ></input>
-              <div className={`${styles["line"]}`}></div>
-              <h3>CA-ID</h3>
-              <input
-                type="text"
-                name="caid"
-                className={`${styles["caid"]}`}
-                placeholder="CA-*****"
-                readOnly
-              ></input>
-              <div className={`${styles["line"]}`}></div>
-              <div className={`${styles["photo001"]}`}>
-                <h3>Your Photo</h3>
-                <p>This will be displayed on your profile.</p>
-              </div>
-              <img src="https://picsum.photos/200"></img>
-
-              <div className={`${styles["butts"]}`}>
-                <button type="button" className={`${styles["delete"]}`}>
-                  Delete
-                </button>
-                <label htmlFor="dp">Update</label>
-                <input type="file" id="dp" />
-              </div>
-              <div className={`${styles["line"]}`}></div>
-              <h3>E-Mail</h3>
-              <input
-                type="text"
-                name="email"
-                className={`${styles["email"]}`}
-                placeholder="@xyz.com"
-              ></input>
-              <div className="line"></div>
-              <h3>Contact No.</h3>
-              <input
-                type="tel"
-                name="phone"
-                className={`${styles["phone"]}`}
-                maxLength="10"
-                placeholder="+91 00000-00000"
-              ></input>
-              <div className={`${styles["line"]}`}></div>
-              <h3>College</h3>
-              <input
-                type="text"
-                name="college"
-                className={`${styles["college"]}`}
-                placeholder="your college"
-              ></input>
-              <div className="line"></div>
-              <div className={`${styles["bio001"]}`}>
-                <h3>Your Bio</h3>
-                <p>Write a short introduction</p>
-              </div>
-              <textarea
-                name="bio"
-                className={`${styles["bio"]}`}
-                placeholder="Type here!!"
-              ></textarea>
-            </div>
-          </form>
+            <button
+              onClick={() => {
+                setModelOpen(false);
+              }}
+              type="button"
+              class="ml-auto -mx-1.5 -my-1.5 bg-green-100 dark:bg-green-200 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 dark:hover:bg-green-300 inline-flex h-8 w-8"
+              data-collapse-toggle="alert-border-3"
+              aria-label="Close"
+            >
+              <span class="sr-only">Dismiss</span>
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        ) : (
+          <></>
+        )}
+        <div className="flex flex-wrap mainDiv">
+          <div className="w-full lg:w-4/12 px-4">
+            <CardProfile />
+          </div>
+          <div className="w-full lg:w-8/12 px-4">
+            <CardSettings setModelOpen={setModelOpen} modelOpen={modelOpen} />
+          </div>
         </div>
       </motion.div>
     </motion.section>

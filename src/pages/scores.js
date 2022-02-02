@@ -12,6 +12,7 @@ import { auth } from "../logic/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import CardTable from "../components/CardTable";
 
 function Scores({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
@@ -58,7 +59,7 @@ function Scores({ close, setClose, setNavbarVisible }) {
       </motion.div>
       <motion.div variants={showAnim}>
         <div className="mainDiv">
-          <h1>Hello</h1>
+          <CardTable></CardTable>
         </div>
       </motion.div>
     </motion.section>

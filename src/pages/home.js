@@ -13,7 +13,6 @@ import {
 import styled from "styled-components";
 import Ranks from "../components/Rank";
 import Task from "../components/Project";
-import { FiSearch } from "react-icons/fi";
 import Info from "../components/Info";
 import CaCodeCard from "../components/caCode";
 import CaLink from "../components/CaLink";
@@ -66,12 +65,6 @@ function Home({ close, setClose, setNavbarVisible }) {
             <Text>
               Good morning ,<span> {user?.displayName || user?.email}</span>
             </Text>
-            {/* <InputContainer>
-              <Icon>
-                <FiSearch />
-              </Icon>
-              <Input type="text" placeholder="Search for projects" />
-            </InputContainer> */}
           </ColumnTwo>
           <ColumnOne>
             <ColumnThree>
