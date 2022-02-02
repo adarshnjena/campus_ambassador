@@ -62,7 +62,7 @@ function Profile({ close, setClose, setNavbarVisible }) {
       <motion.div variants={showAnim}>
         {modelOpen ? (
           <div
-            class="flex p-4 mb-4 bg-green-100 border-t-4 border-green-500 dark:bg-green-200"
+            className="flex p-4 mb-4 bg-green-100 border-t-4 border-green-500 dark:bg-green-200"
             role="alert"
             style={{
               margin: "auto",
@@ -75,7 +75,7 @@ function Profile({ close, setClose, setNavbarVisible }) {
             }}
           >
             <svg
-              class="flex-shrink-0 w-5 h-5 text-green-700"
+              className="flex-shrink-0 w-5 h-5 text-green-700"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ function Profile({ close, setClose, setNavbarVisible }) {
                 clip-rule="evenodd"
               ></path>
             </svg>
-            <div class="ml-3 text-sm font-medium text-green-700">
+            <div className="ml-3 text-sm font-medium text-green-700">
               Profile Updated Succefully
             </div>
             <button
@@ -94,13 +94,13 @@ function Profile({ close, setClose, setNavbarVisible }) {
                 setModelOpen(false);
               }}
               type="button"
-              class="ml-auto -mx-1.5 -my-1.5 bg-green-100 dark:bg-green-200 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 dark:hover:bg-green-300 inline-flex h-8 w-8"
+              className="ml-auto -mx-1.5 -my-1.5 bg-green-100 dark:bg-green-200 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 dark:hover:bg-green-300 inline-flex h-8 w-8"
               data-collapse-toggle="alert-border-3"
               aria-label="Close"
             >
-              <span class="sr-only">Dismiss</span>
+              <span className="sr-only">Dismiss</span>
               <svg
-                class="w-5 h-5"
+                className="w-5 h-5"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
