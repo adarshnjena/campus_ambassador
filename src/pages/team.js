@@ -70,7 +70,7 @@ function Team({ close, setClose, setNavbarVisible }) {
                     <img
                       alt="profil"
                       src="https://firebasestorage.googleapis.com/v0/b/web-dev-demo-adarsh.appspot.com/o/pexels-sheep-1846422.jpg?alt=media&token=998a0c9a-5562-47de-8dac-f726d973bfb7"
-                      className="mx-auto object-cover rounded-lg h-40 w-40  border-2 border-white dark:border-gray-800"
+                      className="mx-auto object-cover rounded-lg h-40 w-40  border-2 border-white dark:border-gray-800 mask mask-decagon"
                     />
                   </a>
                 </div>
@@ -199,7 +199,7 @@ function Team({ close, setClose, setNavbarVisible }) {
                     <img
                       alt="profil"
                       src="https://firebasestorage.googleapis.com/v0/b/web-dev-demo-adarsh.appspot.com/o/pexels-sheep-1846422.jpg?alt=media&token=998a0c9a-5562-47de-8dac-f726d973bfb7"
-                      className="mx-auto object-cover rounded-lg h-40 w-40  border-2 border-white dark:border-gray-800"
+                      className="mx-auto object-cover rounded-lg h-40 w-40  border-2 border-white dark:border-gray-800 mask mask-decagon"
                     />
                   </a>
                 </div>
@@ -329,7 +329,7 @@ function Team({ close, setClose, setNavbarVisible }) {
                     <img
                       alt="profil"
                       src="https://firebasestorage.googleapis.com/v0/b/web-dev-demo-adarsh.appspot.com/o/pexels-sheep-1846422.jpg?alt=media&token=998a0c9a-5562-47de-8dac-f726d973bfb7"
-                      className="mx-auto object-cover rounded-lg h-40 w-40  border-2 border-white dark:border-gray-800"
+                      className="mx-auto object-cover rounded-lg h-40 w-40  border-2 border-white dark:border-gray-800 mask mask-decagon"
                     />
                   </a>
                 </div>

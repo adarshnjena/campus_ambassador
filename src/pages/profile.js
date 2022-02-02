@@ -57,7 +57,7 @@ function Profile({ close, setClose, setNavbarVisible }) {
           }}
           className="bx bx-menu"
         ></i>
-        <span className="text"></span>
+        <span className="text">Profile</span>
       </motion.div>
       <motion.div variants={showAnim}>
         {modelOpen ? (
@@ -116,7 +116,7 @@ function Profile({ close, setClose, setNavbarVisible }) {
         ) : (
           <></>
         )}
-        <div className="flex flex-wrap mainDiv">
+        <div className="flex flex-wrap mt-10">
           <div className="w-full lg:w-4/12 px-4">
             <CardProfile />
           </div>
