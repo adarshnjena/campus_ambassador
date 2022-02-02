@@ -157,7 +157,12 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
               </li>
             </ul>
           </li>
-          <Link to={"/profile"}>
+          <Link
+            onClick={() => {
+              setClose(true);
+            }}
+            to={"/profile"}
+          >
             <li>
               <div className="profile-details">
                 <div className="profile-content">

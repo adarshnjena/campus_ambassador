@@ -21,7 +21,6 @@ function Profile({ close, setClose, setNavbarVisible }) {
   const redirect = () => {
     navigate("/");
   };
-  const [user, setUser] = useState(null);
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
     setTimeout(() => {
