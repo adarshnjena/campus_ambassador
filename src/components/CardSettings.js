@@ -20,7 +20,7 @@ export default function CardSettyings({ setModelOpen, modelOpen }) {
             </button>
           </div>
         </div>
-        <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+        <div className="flex-auto px-0 lg:px-10 py-10 pt-0">
           <form>
             <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
               User Information
