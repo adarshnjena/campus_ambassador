@@ -161,7 +161,7 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
             <li>
               <div className="profile-details">
                 <div className="profile-content">
-                  <img src={user?.photoURL || "image/profile.svg"} />
+                  <img src={user?.photoURL || "image/profile.png"} />
                 </div>
                 <div className="name-job">
                   <div className="profile_name">
