@@ -27,19 +27,18 @@ function Profile({ close, setClose, setNavbarVisible }) {
   const redirect = () => {
     navigate("/");
   };
+  const db = getFirestore();
   const getUsersData = async () => {
     getDoc(doc(db, "users", user?.uid)).then((docSnap) => {
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
         userData = docSnap.data();
-        setUserCity(userData.city);
         setUserCountry(userData.country);
       } else {
         console.log("No such document!");
       }
     });
   };
-  const db = getFirestore();
+
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
     console.log(currentUser.uid);
@@ -52,7 +51,6 @@ function Profile({ close, setClose, setNavbarVisible }) {
     }, 1000);
   });
 
-  useEffect(() => {}, [userData]);
   const [modelOpen, setModelOpen] = useState(false);
   return (
     <motion.section
