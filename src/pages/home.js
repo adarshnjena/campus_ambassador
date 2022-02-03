@@ -61,6 +61,33 @@ function Home({ close, setClose, setNavbarVisible }) {
       </motion.div>
       <motion.div variants={showAnim}>
         <div className="mainDiv">
+          <div
+            class="mb-3 flex items-center justify-between bg-yellow-200 border-yellow-600 text-yellow-600 border-l-4 p-3"
+            role="alert"
+          >
+            <p class="font-bold">Update Your Profile</p>
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-yellow-600 hover:text-yellow-700 bg-yellow-50 hover:bg-yellow-100 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              >
+                {" "}
+                <circle cx="12" cy="8" r="5" />
+                <path d="M3,21 h18 C 21,12 3,12 3,21" />
+              </svg>{" "}
+              <div>Update</div>
+            </button>
+          </div>
+
           <ColumnTwo>
             <Text>
               Good morning ,<span> {user?.displayName || user?.email}</span>

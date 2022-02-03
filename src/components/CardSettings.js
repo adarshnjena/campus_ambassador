@@ -2,7 +2,12 @@ import React from "react";
 
 // components
 
-export default function CardSettyings({ setModelOpen, modelOpen }) {
+export default function CardSettyings({
+  setModelOpen,
+  modelOpen,
+  userCity,
+  userCountry,
+}) {
   const onClickButton = (e) => {
     e.preventDefault();
   };
@@ -149,7 +154,7 @@ export default function CardSettyings({ setModelOpen, modelOpen }) {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="New York"
+                    defaultValue={userCity}
                   />
                 </div>
               </div>
@@ -164,7 +169,7 @@ export default function CardSettyings({ setModelOpen, modelOpen }) {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="United States"
+                    defaultValue={userCountry}
                   />
                 </div>
               </div>

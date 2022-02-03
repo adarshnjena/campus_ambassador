@@ -11,18 +11,39 @@ import styled from "styled-components";
 import { auth } from "../logic/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CardSettings from "../components/CardSettings";
 import CardProfile from "../components/CardProfile";
+import { getFirestore, collection, getDoc, doc } from "firebase/firestore";
 
 function Profile({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
+  let userData = null;
+  const [user, setUser] = useState(null);
+  const [userCity, setUserCity] = useState("");
+  const [userCountry, setUserCountry] = useState("");
+
   let navigate = useNavigate();
   const redirect = () => {
     navigate("/");
   };
+  const getUsersData = async () => {
+    getDoc(doc(db, "users", user?.uid)).then((docSnap) => {
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        userData = docSnap.data();
+        setUserCity(userData.city);
+        setUserCountry(userData.country);
+      } else {
+        console.log("No such document!");
+      }
+    });
+  };
+  const db = getFirestore();
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
+    console.log(currentUser.uid);
+    getUsersData();
     setTimeout(() => {
       if (!currentUser) {
         setNavbarVisible(false);
@@ -30,6 +51,8 @@ function Profile({ close, setClose, setNavbarVisible }) {
       }
     }, 1000);
   });
+
+  useEffect(() => {}, [userData]);
   const [modelOpen, setModelOpen] = useState(false);
   return (
     <motion.section
@@ -117,10 +140,15 @@ function Profile({ close, setClose, setNavbarVisible }) {
         )}
         <div className="flex flex-wrap mt-10">
           <div className="w-full lg:w-4/12 px-4">
-            <CardProfile />
+            <CardProfile userCity={userCity} userCountry={userCountry} />
           </div>
           <div className="w-full lg:w-8/12 px-4">
-            <CardSettings setModelOpen={setModelOpen} modelOpen={modelOpen} />
+            <CardSettings
+              userCountry={userCountry}
+              userCity={userCity}
+              setModelOpen={setModelOpen}
+              modelOpen={modelOpen}
+            />
           </div>
         </div>
       </motion.div>

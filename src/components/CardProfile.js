@@ -5,7 +5,7 @@ import { useState } from "react";
 
 // components
 
-export default function CardProfile() {
+export default function CardProfile({ userCity, userCountry }) {
   const [user, setUser] = useState(null);
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -54,7 +54,7 @@ export default function CardProfile() {
             </h3>
             <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
               <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
-              Los Angeles, California
+              {userCity}, {userCountry}
             </div>
             <div className="mb-2 text-blueGray-600 mt-10">
               <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
