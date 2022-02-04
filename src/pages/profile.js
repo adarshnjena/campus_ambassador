@@ -11,10 +11,10 @@ import styled from "styled-components";
 import { auth } from "../logic/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CardSettings from "../components/CardSettings";
 import CardProfile from "../components/CardProfile";
-import { getFirestore, collection, getDoc, doc } from "firebase/firestore";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 function Profile({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
@@ -32,6 +32,7 @@ function Profile({ close, setClose, setNavbarVisible }) {
     getDoc(doc(db, "users", user?.uid)).then((docSnap) => {
       if (docSnap.exists()) {
         userData = docSnap.data();
+        setUserCity(userData.city);
         setUserCountry(userData.country);
       } else {
         console.log("No such document!");
@@ -142,6 +143,7 @@ function Profile({ close, setClose, setNavbarVisible }) {
           </div>
           <div className="w-full lg:w-8/12 px-4">
             <CardSettings
+              user={user}
               userCountry={userCountry}
               userCity={userCity}
               setModelOpen={setModelOpen}

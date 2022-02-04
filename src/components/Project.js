@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { cardShadow, hoverEffect, themeColor, hoverColor } from "../utils";
+import { taskComplitionData } from "../utils/taskComplitionData";
 import projectData from "../utils/taskData";
 import Badge from "./Badge";
 
@@ -28,10 +29,12 @@ function Task({ seeAll }) {
                 </Detail>
               </ProjectDetails>
               <Badge
-                content={`${proj.status ? "Done" : "Painding"}`}
-                done={proj.status}
+                content={`${taskComplitionData.task1 ? "Done" : "Painding"}`}
+                done={taskComplitionData.task1}
                 late={proj.late}
-                painding={`${!proj.status && !proj.late ? true : false}`}
+                painding={`${
+                  !taskComplitionData.task1 && !proj.late ? true : false
+                }`}
               />
             </Project>
           );

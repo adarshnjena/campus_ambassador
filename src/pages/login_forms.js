@@ -17,7 +17,7 @@ import {
   updateProfile,
   signOut,
 } from "firebase/auth";
-import { auth, signInWithGoogle } from "../logic/firebase";
+import { auth, signInWithGoogle, user_data } from "../logic/firebase";
 
 function Form() {
   const onClickButton = (e) => {
@@ -47,9 +47,11 @@ function Form() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser] = useState(null);
+  let userData = null;
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
     redirect(user);
+    user_data(currentUser, userData);
   });
 
   const register = async () => {
@@ -62,8 +64,9 @@ function Form() {
       const result2 = await updateProfile(result.user, {
         displayName: registerName,
       });
-      console.log(result);
+      console.log(result.uid);
       console.log(result2);
+
       redirect(result);
     } catch (error) {
       console.log(error.message);
