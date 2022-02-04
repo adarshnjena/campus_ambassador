@@ -5,21 +5,35 @@ import { update_user_data } from "../logic/firebase";
 
 export default function CardSettyings({
   setModelOpen,
-  modelOpen,
-  userCity,
   userCountry,
+  userCity,
+  userAbout,
+  userCollegeName,
+  userFirstName,
+  userLastName,
+  userPhone,
+  userAddress,
   user,
+  userDisplayName,
+  userEmail,
+  setUserAbout,
+  setUserCollegeName,
+  setUserAddress,
+  setUserCity,
+  setUserCountry,
+  setUserFirstName,
+  setUserLastName,
+  setUserPhone,
 }) {
   let updateUserData = {
-    about: "",
-    address: "",
-    birth_year: "",
+    about: userAbout,
+    address: userAddress,
     city: userCity,
-    college_name: "",
+    college_name: userCollegeName,
     country: userCountry,
-    first_name: "",
-    last_name: "",
-    postal_code: 1,
+    first_name: userFirstName,
+    last_name: userLastName,
+    phone: userPhone,
   };
   const onClickButton = (e) => {
     e.preventDefault();
@@ -55,7 +69,8 @@ export default function CardSettyings({
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="lucky.jesse"
+                    defaultValue={userDisplayName}
+                    disabled="disabled"
                   />
                 </div>
               </div>
@@ -70,7 +85,8 @@ export default function CardSettyings({
                   <input
                     type="email"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="jesse@example.com"
+                    defaultValue={userEmail}
+                    disabled="disabled"
                   />
                 </div>
               </div>
@@ -85,7 +101,10 @@ export default function CardSettyings({
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Lucky"
+                    defaultValue={userFirstName}
+                    onChange={(e) => {
+                      setUserFirstName(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -100,7 +119,10 @@ export default function CardSettyings({
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Jesse"
+                    defaultValue={userLastName}
+                    onChange={(e) => {
+                      setUserLastName(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -115,24 +137,10 @@ export default function CardSettyings({
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="GCOEN"
-                  />
-                </div>
-              </div>
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    BTech-Year
-                  </label>
-                  <input
-                    type="number"
-                    min={1}
-                    max={4}
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Jesse"
+                    defaultValue={userCollegeName}
+                    onChange={(e) => {
+                      setUserCollegeName(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -152,7 +160,10 @@ export default function CardSettyings({
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                    defaultValue={userAddress}
+                    onChange={(e) => {
+                      setUserAddress(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -168,6 +179,9 @@ export default function CardSettyings({
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue={userCity}
+                    onChange={(e) => {
+                      setUserCity(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -183,6 +197,9 @@ export default function CardSettyings({
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue={userCountry}
+                    onChange={(e) => {
+                      setUserCountry(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -192,12 +209,17 @@ export default function CardSettyings({
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    Postal Code
+                    Phone Number
                   </label>
                   <input
-                    type="text"
+                    type="tel"
+                    name="phone"
+                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Postal Code"
+                    defaultValue={userPhone == 1 ? "" : userPhone}
+                    onChange={(e) => {
+                      setUserPhone(e.target.value);
+                    }}
                   />
                 </div>
               </div>
@@ -218,7 +240,10 @@ export default function CardSettyings({
                   <textarea
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="A beautiful UI Kit and Admin for React & Tailwind CSS. It is Free and Open Source."
+                    defaultValue={userAbout}
+                    onChange={(e) => {
+                      setUserAbout(e.target.value);
+                    }}
                     rows="4"
                     cols="120"
                   ></textarea>
@@ -229,10 +254,11 @@ export default function CardSettyings({
               type="submit"
               className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
               onClick={(e) => {
-                setModelOpen(true);
                 onClickButton(e);
                 console.log(user.uid);
+                console.log(updateUserData);
                 update_user_data(user, updateUserData);
+                setModelOpen(true);
               }}
             >
               <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">

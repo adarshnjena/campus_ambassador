@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { cardShadow, hoverEffect, themeColor, hoverColor } from "../utils";
-import { taskComplitionData } from "../utils/taskComplitionData";
 import projectData from "../utils/taskData";
 import Badge from "./Badge";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
+import { auth } from "../logic/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 function Task({ seeAll }) {
+  let userData = null;
+  const [taskComplitionData, setTaskComplitionData] = useState({});
+  const [user, setUser] = useState(null);
+  const [flag, setFlag] = useState(true);
+
+  const db = getFirestore();
+  const getUsersData = async () => {
+    getDoc(doc(db, "users", user?.uid)).then((docSnap) => {
+      if (docSnap.exists()) {
+        userData = docSnap.data();
+        setTaskComplitionData(userData.task_complition_data);
+      } else {
+        console.log("No such document!");
+      }
+    });
+  };
+
+  if (flag) {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      getUsersData();
+      setFlag(false);
+      setTimeout(() => {
+        if (!currentUser) {
+          setNavbarVisible(false);
+          redirect();
+        }
+      }, 1000);
+    });
+  }
+
   var size = projectData().size;
   if (seeAll) {
     size = 5;
@@ -29,11 +62,17 @@ function Task({ seeAll }) {
                 </Detail>
               </ProjectDetails>
               <Badge
-                content={`${taskComplitionData.task1 ? "Done" : "Painding"}`}
-                done={taskComplitionData.task1}
+                content={`${
+                  taskComplitionData[`task${cur_index + 1}`]
+                    ? "Done"
+                    : "Painding"
+                }`}
+                done={taskComplitionData[`task${cur_index + 1}`]}
                 late={proj.late}
                 painding={`${
-                  !taskComplitionData.task1 && !proj.late ? true : false
+                  !taskComplitionData[`task${cur_index + 1}`] && !proj.late
+                    ? true
+                    : false
                 }`}
               />
             </Project>

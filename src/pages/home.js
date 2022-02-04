@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { auth } from "../logic/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 import {
   pageAnimation,
   titleAnim,
@@ -19,10 +20,48 @@ import CaLink from "../components/CaLink";
 function Home({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
   let navigate = useNavigate();
+  let userData = null;
+  const [showUpdateprofile, setShowUpdateprofile] = useState(false);
+  const [flag, setFlag] = useState(true);
+  const [user, setUser] = useState(null);
   const redirect = () => {
     navigate("/");
   };
-  const [user, setUser] = useState(null);
+  const db = getFirestore();
+  const getUsersData = async () => {
+    getDoc(doc(db, "users", user?.uid)).then((docSnap) => {
+      if (docSnap.exists()) {
+        userData = docSnap.data();
+        if (
+          userData.city === "" ||
+          userData.country === "" ||
+          userData.birth_year === "" ||
+          userData.college_name === "" ||
+          userData.first_name === "" ||
+          userData.last_name === "" ||
+          userData.phone === 1
+        ) {
+          setShowUpdateprofile(true);
+        }
+      } else {
+        console.log("No such document!");
+      }
+    });
+  };
+  if (flag) {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      getUsersData();
+      setFlag(false);
+      setTimeout(() => {
+        if (!currentUser) {
+          setNavbarVisible(false);
+          redirect();
+        }
+      }, 1000);
+    });
+  }
+
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
     setTimeout(() => {
@@ -61,32 +100,38 @@ function Home({ close, setClose, setNavbarVisible }) {
       </motion.div>
       <motion.div variants={showAnim}>
         <div className="mainDiv">
-          <div
-            className="mb-3 flex items-center justify-between bg-yellow-200 border-yellow-600 text-yellow-600 border-l-4 p-3"
-            role="alert"
-          >
-            <p className="font-bold">Update Your Profile</p>
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-yellow-600 hover:text-yellow-700 bg-yellow-50 hover:bg-yellow-100 transition-colors"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                fill="none"
+          {showUpdateprofile ? (
+            <Link to={"/profile"} className="no-underline">
+              <div
+                className="mb-3 flex items-center justify-between bg-yellow-200 border-yellow-600 text-yellow-600 border-l-4 p-3"
+                role="alert"
               >
-                {" "}
-                <circle cx="12" cy="8" r="5" />
-                <path d="M3,21 h18 C 21,12 3,12 3,21" />
-              </svg>{" "}
-              <div>Update</div>
-            </button>
-          </div>
+                <p className="font-bold">Update Your Profile</p>
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-yellow-600 hover:text-yellow-700 bg-yellow-50 hover:bg-yellow-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  >
+                    {" "}
+                    <circle cx="12" cy="8" r="5" />
+                    <path d="M3,21 h18 C 21,12 3,12 3,21" />
+                  </svg>{" "}
+                  <div>Update</div>
+                </button>
+              </div>
+            </Link>
+          ) : (
+            <></>
+          )}
 
           <ColumnTwo>
             <Text>

@@ -18,11 +18,24 @@ import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 function Profile({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
+  const [flag, setFlag] = useState(true);
   let userData = null;
   const [user, setUser] = useState(null);
   const [userCity, setUserCity] = useState("");
   const [userCountry, setUserCountry] = useState("");
+  const [userAbout, setUserAbout] = useState("");
+  const [userCollegeName, setUserCollegeName] = useState("");
+  const [userFirstName, setUserFirstName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
+  const [userPhone, setUserPhone] = useState("");
+  const [userAddress, setUserAddress] = useState("");
+  const [userDisplayName, setUserDisplayName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
+  const [showProfileCard, setShowProfileCard] = useState(true);
+  const [settingsCardClassName, setSettingsCardClassName] = useState(
+    "w-full lg:w-8/12 px-4"
+  );
   let navigate = useNavigate();
   const redirect = () => {
     navigate("/");
@@ -34,16 +47,40 @@ function Profile({ close, setClose, setNavbarVisible }) {
         userData = docSnap.data();
         setUserCity(userData.city);
         setUserCountry(userData.country);
+        setUserAbout(userData.about);
+        setUserCollegeName(userData.college_name);
+        setUserFirstName(userData.first_name);
+        setUserLastName(userData.last_name);
+        setUserPhone(userData.phone);
+        setUserAddress(userData.address);
+
+        if (
+          userData.city === "" ||
+          userData.country === "" ||
+          userData.college_name === "" ||
+          userData.first_name === "" ||
+          userData.last_name === "" ||
+          userData.phone === 1
+        ) {
+          setShowProfileCard(false);
+          setSettingsCardClassName("w-full px-4");
+        }
       } else {
         console.log("No such document!");
       }
     });
   };
 
+  if (flag) {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      getUsersData();
+      setUserDisplayName(currentUser.displayName);
+      setUserEmail(currentUser.email);
+      setFlag(false);
+    });
+  }
   onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-    console.log(currentUser.uid);
-    getUsersData();
     setTimeout(() => {
       if (!currentUser) {
         setNavbarVisible(false);
@@ -137,17 +174,46 @@ function Profile({ close, setClose, setNavbarVisible }) {
         ) : (
           <></>
         )}
-        <div className="flex flex-wrap mt-10">
-          <div className="w-full lg:w-4/12 px-4">
-            <CardProfile userCity={userCity} userCountry={userCountry} />
-          </div>
-          <div className="w-full lg:w-8/12 px-4">
+        <div className="flex flex-wrap">
+          {showProfileCard ? (
+            <div className="w-full lg:w-4/12 px-4">
+              <CardProfile
+                user={user}
+                userCountry={userCountry}
+                userCity={userCity}
+                userAbout={userAbout}
+                userCollegeName={userCollegeName}
+                userFirstName={userFirstName}
+                userLastName={userLastName}
+                userPhone={userPhone}
+                userAddress={userAddress}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+          <div className={settingsCardClassName}>
             <CardSettings
               user={user}
               userCountry={userCountry}
               userCity={userCity}
+              userAbout={userAbout}
+              userCollegeName={userCollegeName}
+              userFirstName={userFirstName}
+              userLastName={userLastName}
+              userPhone={userPhone}
+              userAddress={userAddress}
+              userDisplayName={userDisplayName}
+              userEmail={userEmail}
               setModelOpen={setModelOpen}
-              modelOpen={modelOpen}
+              setUserAbout={setUserAbout}
+              setUserCollegeName={setUserCollegeName}
+              setUserAddress={setUserAddress}
+              setUserCity={setUserCity}
+              setUserCountry={setUserCountry}
+              setUserFirstName={setUserFirstName}
+              setUserLastName={setUserLastName}
+              setUserPhone={setUserPhone}
             />
           </div>
         </div>
