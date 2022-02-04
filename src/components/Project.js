@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, navigate } from "react-router-dom";
 import styled from "styled-components";
 import { cardShadow, hoverEffect, themeColor, hoverColor } from "../utils";
 import projectData from "../utils/taskData";
@@ -8,7 +8,7 @@ import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { auth } from "../logic/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-function Task({ seeAll }) {
+function Task({ seeAll, setNavbarVisible }) {
   let userData = null;
   const [taskComplitionData, setTaskComplitionData] = useState({});
   const [user, setUser] = useState(null);
@@ -25,6 +25,12 @@ function Task({ seeAll }) {
       }
     });
   };
+
+
+  const redirect = () => {
+    navigate("/");
+  };
+
 
   if (flag) {
     onAuthStateChanged(auth, (currentUser) => {
