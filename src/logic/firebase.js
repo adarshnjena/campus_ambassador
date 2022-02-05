@@ -73,10 +73,9 @@ export const update_user_data = (user, userData) => {
   });
 };
 
-export function update_task_data (user, task_id) {
-  let data = {};
-  data[`task${task_id}`] = true;
-  updateDoc(doc(db, "users", user.uid), {
-    task_complition_data: data,
-  });
+export async function update_task_data (user, task_id) { 
+  let snapshot = await getDoc(doc(db, "users", user.uid))
+  let data = snapshot.data()
+  data['task_complition_data'][`task${task_id+1}`] = true
+  updateDoc(doc(db, "users", user.uid), data);
 }
