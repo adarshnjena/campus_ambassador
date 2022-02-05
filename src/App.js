@@ -10,7 +10,7 @@ import Faq from "./pages/faq";
 import Scores from "./pages/scores";
 import Team from "./pages/team";
 import Form from "./pages/login_forms";
-import Profile from './pages/profile';
+import Profile from "./pages/profile";
 
 function App() {
   const [close, setClose] = useState(true);
@@ -63,16 +63,6 @@ function App() {
           path="/faq"
           element={
             <Faq
-              close={close}
-              setClose={setClose}
-              setNavbarVisible={setNavbarVisible}
-            />
-          }
-        />
-        <Route
-          path="/scores"
-          element={
-            <Scores
               close={close}
               setClose={setClose}
               setNavbarVisible={setNavbarVisible}

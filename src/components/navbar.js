@@ -138,17 +138,6 @@ function Nav({ close, setClose, navbarVisible, setNavbarVisible }) {
               navToggelHandler();
             }}
           >
-            <NavLink
-              style={({ isActive }) => {
-                return {
-                  backgroundColor: isActive ? "black" : "#11101d",
-                };
-              }}
-              to="/scores"
-            >
-              <i className="bx bx-line-chart"></i>
-              <span className="link_name">Scores</span>
-            </NavLink>
             <ul className="sub-menu blank">
               <li>
                 <Link to="#" className="link_name">
