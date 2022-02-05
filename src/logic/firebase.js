@@ -9,13 +9,12 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDmuEsUKaiPG4ZMJtK60lqpfkz0tIrqLeQ",
-  authDomain: "fir-d7cd8.firebaseapp.com",
-  projectId: "fir-d7cd8",
-  storageBucket: "fir-d7cd8.appspot.com",
-  messagingSenderId: "119551424225",
-  appId: "1:119551424225:web:2e8f27522a4f70a33129a0",
-  measurementId: "G-M4RPLRTND7",
+  apiKey: "AIzaSyD4WmTOsr8MSgVFAeyfPWzHzD7YLHX3Fws",
+  authDomain: "caportal-adhyaaya.firebaseapp.com",
+  projectId: "caportal-adhyaaya",
+  storageBucket: "caportal-adhyaaya.appspot.com",
+  messagingSenderId: "1055710245256",
+  appId: "1:1055710245256:web:159593e0486e9121658a3d",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -27,12 +26,14 @@ export const signInWithGoogle = () => {
 };
 
 const db = getFirestore();
+
 export const user_data = (user, userData) => {
   getDoc(doc(db, "users", user.uid)).then((docSnap) => {
     if (docSnap.exists()) {
       userData = docSnap.data();
     } else {
-      setDoc(doc(db, "users", user.uid), {
+      let Ca_code = user?.uid.slice(0, 7);
+      setDoc(doc(db, "users", user?.uid), {
         about: "",
         address: "",
         city: "",
@@ -48,6 +49,12 @@ export const user_data = (user, userData) => {
           task4: false,
           task5: false,
         },
+      });
+      setDoc(doc(db, "uid_rel_with_ca_code", user.uid), {
+        ca_code: Ca_code,
+      });
+      setDoc(doc(db, "ca_code", Ca_code), {
+        number_of_regis: 0,
       });
     }
   });
