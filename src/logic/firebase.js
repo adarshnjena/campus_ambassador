@@ -9,7 +9,6 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-
   apiKey: "AIzaSyCEh7vHPOJBbmCIZ_pHOqLnDBsKh5-UHBQ",
 
   authDomain: "adhyaaya-dev-env.firebaseapp.com",
@@ -22,10 +21,8 @@ const firebaseConfig = {
 
   appId: "1:299413973703:web:76d391cfe68069db132ce2",
 
-  measurementId: "G-Z9Z1GHE65D"
-
+  measurementId: "G-Z9Z1GHE65D",
 };
-
 
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
@@ -83,9 +80,9 @@ export const update_user_data = (user, userData) => {
   });
 };
 
-export async function update_task_data (user, task_id) { 
-  let snapshot = await getDoc(doc(db, "users", user.uid))
-  let data = snapshot.data()
-  data['task_complition_data'][`task${task_id+1}`] = true
+export async function update_task_data(user, task_id) {
+  let snapshot = await getDoc(doc(db, "users", user.uid));
+  let data = snapshot.data();
+  data["task_complition_data"][`task${task_id + 1}`] = true;
   updateDoc(doc(db, "users", user.uid), data);
 }
