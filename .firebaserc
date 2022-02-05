@@ -1,7 +1,5 @@
 {
   "projects": {
-    "default": "fir-d7cd8",
-    "dev": "adhyaaya-dev-env"
-  },
-  "targets": {}
+    "default": "caportal-adhyaaya"
+  }
 }

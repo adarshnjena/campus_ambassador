@@ -24,10 +24,32 @@ function Home({ close, setClose, setNavbarVisible }) {
   const [showUpdateprofile, setShowUpdateprofile] = useState(false);
   const [flag, setFlag] = useState(true);
   const [user, setUser] = useState(null);
+  const [ca_code, setCa_code] = useState(null);
+  const [num_of_paid_registrations, setNum_of_paid_registrations] =
+    useState(null);
   const redirect = () => {
     navigate("/");
   };
   const db = getFirestore();
+  const getCaCode = async () => {
+    getDoc(doc(db, "uid_rel_with_ca_code", user?.uid)).then((docSnap) => {
+      if (docSnap.exists()) {
+        setCa_code(docSnap.data().ca_code);
+      } else {
+        console.log("No such document!");
+      }
+    });
+  };
+  const getPaidRegis = async () => {
+    getDoc(doc(db, "ca_code", ca_code)).then((docSnap) => {
+      if (docSnap.exists()) {
+        console.log(docSnap.data().num_of_paid_registrations);
+        setNum_of_paid_registrations(docSnap.data().number_of_regis);
+      } else {
+        console.log("No such document!");
+      }
+    });
+  };
   const getUsersData = async () => {
     getDoc(doc(db, "users", user?.uid)).then((docSnap) => {
       if (docSnap.exists()) {
@@ -52,7 +74,12 @@ function Home({ close, setClose, setNavbarVisible }) {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       getUsersData();
-      setFlag(false);
+      getCaCode();
+      console.log(ca_code);
+      getPaidRegis();
+      if (ca_code) {
+        setFlag(false);
+      }
       setTimeout(() => {
         if (!currentUser) {
           setNavbarVisible(false);
@@ -61,6 +88,7 @@ function Home({ close, setClose, setNavbarVisible }) {
       }, 1000);
     });
   }
+  
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -141,13 +169,15 @@ function Home({ close, setClose, setNavbarVisible }) {
           <ColumnOne>
             <ColumnThree>
               <Ranks></Ranks>
-              <Info></Info>
+              <Info
+                num_of_paid_registrations={num_of_paid_registrations}
+              ></Info>
             </ColumnThree>
             <Task seeAll={true}></Task>
           </ColumnOne>
           <ColumnOne>
             <ColumnThree>
-              <CaCodeCard></CaCodeCard>
+              <CaCodeCard ca_code={ca_code}></CaCodeCard>
             </ColumnThree>
             <CaLink />
           </ColumnOne>

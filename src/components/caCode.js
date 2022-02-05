@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { hoverEffect, darkThemeColor } from "../utils";
 
-function CaCodeCard() {
+function CaCodeCard({ ca_code }) {
   return (
     <CaCodeDiv>
       <CardContent>
         <CaText>Your Code : -</CaText>
         <CaCodeText>
-          <Code>7890</Code>
+          <Code>{ca_code}</Code>
         </CaCodeText>
       </CardContent>
     </CaCodeDiv>
