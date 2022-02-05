@@ -149,11 +149,13 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
                           console.log(e);
                           e.target.classList += "btn-warning";
                           e.target.innerHTML = "Uploading...";
-                          await sleep(2000);
+                          await sleep(5000*Math.random());
                           update_task_data(auth.currentUser, task_id+1)
                           e.target.classList.remove("btn-warning");
                           e.target.classList.add('btn-success');
                           e.target.innerHTML = "Uploaded";
+                          await sleep(2000);
+                          redirect();
                         }}
                         className={`p-4 rounded-lg uppercase  btn-info ${
                           upload_file ? "" : "hidden"
@@ -165,7 +167,7 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
                   </div>
                   <div className="justify-center pt-6 text-sm">
                     <span className="text-xs text-gray-600">
-                      Task ID: {this_task.id}
+                      If you need to upload multiple files, please create a .zip file. We will check the file regardless.
                     </span>
                   </div>
                 </div>
