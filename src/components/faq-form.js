@@ -58,14 +58,19 @@ export default function Faq() {
             <div className={styles["content1"]}>
               <h3>Have a new quetion ?</h3>
               <p>
-                  Feel free to contact us on our support email : <br /> <div className="tw-p-2 tw-max-w-min tw-mx-auto">ca_support@adhyaaya.tf</div>
+                Feel free to contact us on our support email : <br />{" "}
+                <div className="tw-p-2 tw-max-w-min tw-mx-auto">
+                  adarshnjena@gmail.com
+                </div>
               </p>
-              <button
-                className={`${styles["btn"]} tw-hidden ${styles["transparent"]}`}
-                id="sign-up-btn"
-              >
-                Ask question
-              </button>
+              <a href="mailto:adarshnjena@gmail.com">
+                <button
+                  className={`${styles["btn"]} tw-hidden ${styles["transparent"]}`}
+                  id="sign-up-btn"
+                >
+                  Ask question
+                </button>
+              </a>
             </div>
             <img
               src="https://actiserp.com/wp-content/uploads/admin/2019/07/undraw_newsletter_vovu.png"
