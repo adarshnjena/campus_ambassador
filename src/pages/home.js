@@ -75,7 +75,6 @@ function Home({ close, setClose, setNavbarVisible }) {
       setUser(currentUser);
       getUsersData();
       getCaCode();
-      console.log(ca_code);
       getPaidRegis();
       if (ca_code) {
         setFlag(false);
@@ -88,7 +87,6 @@ function Home({ close, setClose, setNavbarVisible }) {
       }, 1000);
     });
   }
-  
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
