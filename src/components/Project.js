@@ -31,7 +31,6 @@ function Task({ seeAll, setNavbarVisible }) {
     navigate("/");
   };
 
-
   if (flag) {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);

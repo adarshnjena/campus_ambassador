@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { cardShadow, hoverEffect, themeColor } from "../utils";
-function Info() {
+function Info({ num_of_paid_registrations }) {
   return (
     <InfoCard>
       <Card>
         <CardContent>
           <Row>
-            <Digit>08</Digit>
+            <Digit>
+              {num_of_paid_registrations < 10 ? 0 : ""}
+              {num_of_paid_registrations}
+            </Digit>
             <InfoContainer>
               <Title>Paid Registrations</Title>
               <SubTitle>In top 20%</SubTitle>
