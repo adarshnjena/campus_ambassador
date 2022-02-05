@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { cardShadow, hoverEffect, themeColor, hoverColor } from "../utils";
 import projectData from "../utils/taskData";
@@ -26,7 +26,7 @@ function Task({ seeAll, setNavbarVisible }) {
     });
   };
 
-
+  const navigate = useNavigate();
   const redirect = () => {
     navigate("/");
   };

@@ -14,7 +14,7 @@ import projectData from "../utils/taskData";
 // Edits Below
 import { useLocation } from "react-router-dom";
 
-import { auth } from "../logic/firebase";
+import { auth, update_task_data } from "../logic/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -50,7 +50,10 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
   let task_id = Number(query.get("task_id"));
   let this_task = projectData()[task_id];
   let [upload_file, set_upload_file] = useState("");
-  // End Edits
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
   return (
     <motion.section
       className="app-section"
@@ -81,22 +84,22 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
       <motion.div variants={showAnim}>
         <section className="hero">
           <div className="container md:mt-5">
-            <div className="flex flex-col text-center w-full mb-12">
-              <div className="card bg-gray-300 rounded-t-none md:rounded-t-3xl max-w-7xl self-center">
+            <div className="flex flex-col w-full mb-12 text-center">
+              <div className="self-center bg-gray-300 rounded-t-none card md:rounded-t-3xl max-w-7xl">
                 <div ref={_ref}></div>
-                <figure className="px-10 pt-10 max-w-2xl self-center">
+                <figure className="self-center max-w-xl px-10 pt-10">
                   <img
                     src={this_task.img}
                     alt="is-this-gud?"
-                    className="rounded-xl max-w-2xl"
+                    className="max-w-2xl rounded-xl"
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title text-3xl">{this_task.title}</h2>
+                  <h2 className="text-3xl card-title">{this_task.title}</h2>
                   <p className="text-sm text-gray-400">{this_task.subtitle}</p>
-                  <div className="lg:w-1/2 md:w-2/3 mx-auto pt-6">
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                      <div className="w-full text-justify mx-auto py-2 px-2 text-normal">
+                  <div className="pt-6 mx-auto lg:w-1/2 md:w-2/3">
+                    <div className="flex flex-wrap mb-6 -mx-3">
+                      <div className="w-full px-2 py-2 mx-auto text-justify text-normal">
                         <span>
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore et
@@ -110,7 +113,7 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
                         </span>
                       </div>
                     </div>
-                    <div className="justify-center card-actions pt-4">
+                    <div className="justify-center pt-4 card-actions">
                       <span
                         className={`badge ${
                           this_task.status ? "badge-success" : "badge-error"
@@ -118,18 +121,13 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
                       >
                         {this_task.status ? "Completed" : "Incomplete"}
                       </span>
-                      <span
-                        className={`badge ${
-                          this_task.late ? "badge-warning" : "badge-success"
-                        }`}
-                      >
-                        {this_task.late ? "Late" : "On-Time"}
-                      </span>
                     </div>
-                    <div className="justify-center card-actions pt-2">
+                    <div className="justify-center pt-2 card-actions">
                       <label
-                        className={`btn btn-wide ${
-                          upload_file ? "btn-info" : ""
+                        className={`p-4 uppercase rounded-xl ${
+                          upload_file
+                            ? "btn-info"
+                            : "bg-gray-600 text-white uppercase"
                         }`}
                       >
                         {upload_file
@@ -147,12 +145,17 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
                         />
                       </label>
                       <button
-                        onClick={(e) => {
+                        onClick={async (e) => {
                           console.log(e);
-                          e.target.classList += "btn-success ";
-                          // add btn-success or btn-error depending on ok or not
+                          e.target.classList += "btn-warning";
+                          e.target.innerHTML = "Uploading...";
+                          await sleep(2000);
+                          update_task_data(auth.currentUser, task_id+1)
+                          e.target.classList.remove("btn-warning");
+                          e.target.classList.add('btn-success');
+                          e.target.innerHTML = "Uploaded";
                         }}
-                        className={`btn btn-info ${
+                        className={`p-4 rounded-lg uppercase  btn-info ${
                           upload_file ? "" : "hidden"
                         }`}
                       >
@@ -160,7 +163,7 @@ function TaskDetails({ close, setClose, setNavbarVisible }) {
                       </button>
                     </div>
                   </div>
-                  <div className="justify-center text-sm pt-6">
+                  <div className="justify-center pt-6 text-sm">
                     <span className="text-xs text-gray-600">
                       Task ID: {this_task.id}
                     </span>
