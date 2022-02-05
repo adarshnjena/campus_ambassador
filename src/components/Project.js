@@ -85,7 +85,7 @@ function Task({ seeAll, setNavbarVisible }) {
           );
         })}
       {seeAll ? (
-        <Link to="/tasks">
+        <Link to="/tasks" className="no-underline">
           <AllProject>See all tasks</AllProject>{" "}
         </Link>
       ) : (
