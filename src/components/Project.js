@@ -26,7 +26,7 @@ function Task({ seeAll, setNavbarVisible }) {
     });
   };
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const redirect = () => {
     navigate("/");
   };

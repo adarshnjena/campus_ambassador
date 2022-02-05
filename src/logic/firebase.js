@@ -72,3 +72,11 @@ export const update_user_data = (user, userData) => {
     phone: userData.phone,
   });
 };
+
+export function update_task_data (user, task_id) {
+  let data = {};
+  data[`task${task_id}`] = true;
+  updateDoc(doc(db, "users", user.uid), {
+    task_complition_data: data,
+  });
+}
