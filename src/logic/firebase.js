@@ -29,34 +29,43 @@ const db = getFirestore();
 
 export const user_data = (user, userData) => {
   getDoc(doc(db, "users", user.uid)).then((docSnap) => {
-    if (docSnap.exists()) {
-      userData = docSnap.data();
-    } else {
-      let Ca_code = user?.uid.slice(0, 7);
-      setDoc(doc(db, "users", user?.uid), {
-        about: "",
-        address: "",
-        city: "",
-        college_name: "",
-        country: "",
-        first_name: "",
-        last_name: "",
-        phone: 1,
-        task_complition_data: {
-          task1: false,
-          task2: false,
-          task3: false,
-          task4: false,
-          task5: false,
-        },
+    let rank = 0;
+    getDoc(doc(db, "count", "1")).then((docSnap_cnt) => {
+      console.log(docSnap_cnt.data().count);
+      rank = docSnap_cnt.data().count;
+      if (docSnap.exists()) {
+        userData = docSnap.data();
+      } else {
+        let Ca_code = user?.uid.slice(0, 7);
+        setDoc(doc(db, "users", user?.uid), {
+          about: "",
+          address: "",
+          city: "",
+          college_name: "",
+          country: "",
+          first_name: "",
+          last_name: "",
+          phone: 1,
+          rank: rank,
+          task_complition_data: {
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+          },
+        });
+        setDoc(doc(db, "uid_rel_with_ca_code", user.uid), {
+          ca_code: Ca_code,
+        });
+        setDoc(doc(db, "ca_code", Ca_code), {
+          number_of_regis: 0,
+        });
+      }
+      setDoc(doc(db, "count", "1"), {
+        count: rank + 1,
       });
-      setDoc(doc(db, "uid_rel_with_ca_code", user.uid), {
-        ca_code: Ca_code,
-      });
-      setDoc(doc(db, "ca_code", Ca_code), {
-        number_of_regis: 0,
-      });
-    }
+    });
   });
 };
 

@@ -7,7 +7,7 @@ function CaLink() {
     <YourProjects>
       <Project>
         <Detail>
-          <Title>What is CA Code</Title>
+          <Title>What is CA ?</Title>
           <SubTitle>1 day remaining</SubTitle>
         </Detail>
       </Project>

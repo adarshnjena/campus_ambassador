@@ -13,7 +13,7 @@ function Info({ num_of_paid_registrations }) {
             </Digit>
             <InfoContainer>
               <Title>Paid Registrations</Title>
-              <SubTitle>In top 20%</SubTitle>
+              <SubTitle>Step towards Incentives</SubTitle>
             </InfoContainer>
           </Row>
         </CardContent>
@@ -23,8 +23,8 @@ function Info({ num_of_paid_registrations }) {
           <Row>
             <Digit>32</Digit>
             <InfoContainer>
-              <Title>Projects</Title>
-              <SubTitle>8 this month</SubTitle>
+              <Title>Tasks Completed</Title>
+              <SubTitle>Work Hard</SubTitle>
             </InfoContainer>
           </Row>
         </CardContent>
