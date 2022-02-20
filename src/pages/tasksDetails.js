@@ -26,6 +26,7 @@ function useQuery() {
 // End Edit
 
 function TaskDetails({ close, setClose, setNavbarVisible }) {
+  setNavbarVisible(true);
   let navigate = useNavigate();
   const redirect = () => {
     navigate("/");

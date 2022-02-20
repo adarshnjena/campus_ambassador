@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { cardShadow, hoverEffect, themeColor } from "../utils";
 
 function CaLink() {
@@ -7,11 +8,16 @@ function CaLink() {
     <YourProjects>
       <Project>
         <Detail>
-          <Title>What is CA ?</Title>
-          <SubTitle>1 day remaining</SubTitle>
+          <Title>
+            To transform a spectacle like Adhyaaya into reality, it takes will,
+            determination and action.
+          </Title>
+          <SubTitle>Adhyaaya CA Dashboard</SubTitle>
         </Detail>
       </Project>
-      <AllProjects>Know More</AllProjects>
+      <Link to="/tasks" className="no-underline">
+        <AllProject>Start Now</AllProject>{" "}
+      </Link>
     </YourProjects>
   );
 }
@@ -57,7 +63,7 @@ const Title = styled.h3`
 const SubTitle = styled.h5`
   font-weight: 300;
 `;
-const AllProjects = styled.h5`
+const AllProject = styled.h5`
   text-align: end;
   color: ${themeColor};
   cursor: pointer;

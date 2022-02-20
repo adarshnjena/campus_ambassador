@@ -21,7 +21,7 @@ function Info({ num_of_paid_registrations }) {
       <Card>
         <CardContent>
           <Row>
-            <Digit>32</Digit>
+            <Digit>00</Digit>
             <InfoContainer>
               <Title>Tasks Completed</Title>
               <SubTitle>Work Hard</SubTitle>
