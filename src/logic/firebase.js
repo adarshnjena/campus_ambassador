@@ -9,12 +9,13 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD4WmTOsr8MSgVFAeyfPWzHzD7YLHX3Fws",
-  authDomain: "caportal-adhyaaya.firebaseapp.com",
-  projectId: "caportal-adhyaaya",
-  storageBucket: "caportal-adhyaaya.appspot.com",
-  messagingSenderId: "1055710245256",
-  appId: "1:1055710245256:web:159593e0486e9121658a3d",
+  apiKey: "AIzaSyCIfzWW2ATPtfMb0SEoNU1jKZiwSWiDFHc",
+  authDomain: "adhyaayacadashboard.firebaseapp.com",
+  projectId: "adhyaayacadashboard",
+  storageBucket: "adhyaayacadashboard.appspot.com",
+  messagingSenderId: "539794070537",
+  appId: "1:539794070537:web:3006eac4c3278f13b96cd8",
+  measurementId: "G-FV7Z4VPD6P",
 };
 
 const app = initializeApp(firebaseConfig);

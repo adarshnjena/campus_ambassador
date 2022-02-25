@@ -63,7 +63,7 @@ function Team({ close, setClose, setNavbarVisible }) {
               Professional team
             </p>
             <p className="text-center mb-32 text-xl font-normal text-gray-500">
-              Meat the best team in wolrd
+              Meet the best team in world
             </p>
             <div className="flex m-auto w-full items-center space-y-24 md:space-y-0 flex-col md:flex-row justify-center">
               <div className="p-4 relative">
@@ -92,12 +92,12 @@ function Team({ close, setClose, setNavbarVisible }) {
                     </p>
                   </div>
                   <div className="pt-8 flex border-t border-gray-200 w-40 mx-auto text-gray-500 items-center justify-between">
-                    <Link to="https://instagram.com/saurabh739?utm_medium=copy_link">
+                    <a href="https://instagram.com/saurabh739?utm_medium=copy_link">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-instagram"></i>
-                    </Link>
-                    <Link to="https://www.linkedin.com/in/saurabh-yadav-469323208">
+                    </a>
+                    <a href="https://www.linkedin.com/in/saurabh-yadav-469323208">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-linkedin"></i>
-                    </Link>
+                    </a>
                     <a href="mailto:Smyadav@gcoen.ac.in">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-gmail"></i>
                     </a>
@@ -120,7 +120,7 @@ function Team({ close, setClose, setNavbarVisible }) {
                       Ujjwal Gupta
                     </p>
                     <p className="text-xl text-gray-500 dark:text-gray-200 font-light">
-                      Lead dev
+                      CSE Coordinator
                     </p>
                     <p className="text-md text-gray-500 w-60 dark:text-gray-400 mx-auto py-4 font-light">
                       As a flourishing Frontend Web Developer and an aggressive
@@ -130,12 +130,12 @@ function Team({ close, setClose, setNavbarVisible }) {
                     </p>
                   </div>
                   <div className="pt-8 flex border-t border-gray-200 w-40 mx-auto text-gray-500 items-center justify-between">
-                    <Link to=" https://instagram.com/ujjwalsgupta?utm_medium=copy_link">
+                    <a href=" https://instagram.com/ujjwalsgupta?utm_medium=copy_link">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-instagram"></i>
-                    </Link>
-                    <Link to="https://www.linkedin.com/in/ujjwalsgupta">
+                    </a>
+                    <a href="https://www.linkedin.com/in/ujjwalsgupta">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-linkedin"></i>
-                    </Link>
+                    </a>
                     <a href="mailto:usgupta@gcoen.ac.in">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-gmail"></i>
                     </a>
@@ -168,13 +168,13 @@ function Team({ close, setClose, setNavbarVisible }) {
                     </p>
                   </div>
                   <div className="pt-8 flex border-t border-gray-200 w-40 mx-auto text-gray-500 items-center justify-between">
-                    <Link to="https://www.instagram.com/adarshnjena/">
+                    <a href="https://www.instagram.com/adarshnjena/">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-instagram"></i>
-                    </Link>
-                    <Link to="https://www.linkedin.com/in/adarsh-jena-5ba295122/">
+                    </a>
+                    <a href="https://www.linkedin.com/in/adarsh-jena-5ba295122/">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-linkedin"></i>
-                    </Link>
-                    <a hrefL="mailto:adarshnjena@gmail.com">
+                    </a>
+                    <a href="mailto:adarshnjena@gmail.com">
                       <i className="text-3xl hover:text-gray-800 text-stone-50 dark:hover:text-cyan-200 transition-colors duration-200 bx bxl-gmail"></i>
                     </a>
                   </div>
