@@ -86,26 +86,26 @@ export default function Faq() {
 
 const data = [
   {
-    question: "Question1 ",
+    question: "1. When my scores will update?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Totam distinctio quod quos voluptatibus placeat. Tempora, sint exercitationem recusandae, debitis amet quos unde impedit odio sunt laborum provident error ex explicabo! ",
+      "Your Scores will update within a week after the deadline will over.",
   },
 
   {
-    question: "Question2",
+    question: "2.What is the different category of tasks?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Totam distinctio quod quos voluptatibus placeat. Tempora, sint exercitationem recusandae, debitis amet quos unde impedit odio sunt laborum provident error ex explicabo! ",
+      "There are two types of tasks: Mandatory task, Bonous task The mandatory task will help you to get certified and can have other incentives. Bonus tasks will help you to increase your rank.",
   },
 
   {
-    question: "Question3 ",
+    question: "What are the criteria for getting the Certificate?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Totam distinctio quod quos voluptatibus placeat. Tempora, sint exercitationem recusandae, debitis amet quos unde impedit odio sunt laborum provident error ex explicabo! ",
+      "You have to complete all the mandatory tasks and the bonus tasks helps you to gain a better badge",
   },
 
   {
-    question: "Question4 ",
+    question: "What will I gain out of it?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Totam distinctio quod quos voluptatibus placeat. Tempora, sint exercitationem recusandae, debitis amet quos unde impedit odio sunt laborum provident error ex explicabo! ",
+      "You will gain an experience which will help you develop your time management skills, team work, network.",
   },
 ];
