@@ -56,14 +56,14 @@ export default function Faq() {
         <div className={styles["panels-container"]}>
           <div className={`${styles["panel"]} ${styles["left-panel"]}`}>
             <div className={styles["content1"]}>
-              <h3>Have a new quetion ?</h3>
+              <h3>Have a new query ?</h3>
               <p>
                 Feel free to contact us on our support email : <br />{" "}
                 <div className="tw-p-2 tw-max-w-min tw-mx-auto">
-                  adarshnjena@gmail.com
+                  adhyaaya.ca@gmail.com
                 </div>
               </p>
-              <a href="mailto:adarshnjena@gmail.com">
+              <a href="mailto:adhyaaya.ca@gmail.com">
                 <button
                   className={`${styles["btn"]} tw-hidden ${styles["transparent"]}`}
                   id="sign-up-btn"
@@ -86,25 +86,24 @@ export default function Faq() {
 
 const data = [
   {
-    question: "1. When my scores will update?",
-    answer:
-      "Your Scores will update within a week after the deadline will over.",
+    question: "1. When will my scores get updated?",
+    answer: "Your Scores will update within a week after the deadline.",
   },
 
   {
-    question: "2.What is the different category of tasks?",
+    question: "2. What are the different categories of tasks?",
     answer:
-      "There are two types of tasks: Mandatory task, Bonous task The mandatory task will help you to get certified and can have other incentives. Bonus tasks will help you to increase your rank.",
+      "There are two types of tasks: Mandatory task, Bonus task; The mandatory task will help you to get certified and can have other incentives. Bonus tasks will help you to increase your rank.",
   },
 
   {
-    question: "What are the criteria for getting the Certificate?",
+    question: "3. What is the criteria for getting the certificate?",
     answer:
       "You have to complete all the mandatory tasks and the bonus tasks helps you to gain a better badge",
   },
 
   {
-    question: "What will I gain out of it?",
+    question: "4. What will I gain out of it?",
     answer:
       "You will gain an experience which will help you develop your time management skills, team work, network.",
   },

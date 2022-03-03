@@ -12,7 +12,7 @@ function Ranks({ rank }) {
         </Chart>
         <RankText>Rank</RankText>
         <Rank>{rank}</Rank>
-        <RankIncrease>out of 300 CAs</RankIncrease>
+        <RankIncrease>out of 500 CAs</RankIncrease>
       </CardContent>
     </RankCard>
   );

@@ -8,16 +8,20 @@ function CaLink() {
     <YourProjects>
       <Project>
         <Detail>
-          <Title>
-            To transform a spectacle like Adhyaaya into reality, it takes will,
-            determination and action.
-          </Title>
-          <SubTitle>Adhyaaya CA Dashboard</SubTitle>
+          <Title>WHAT IS CA CODE?</Title>
+          <SubTitle>
+            Share this code with your friends and ask them to fill it in
+            referral code section, when they are registering for the events.
+          </SubTitle>
         </Detail>
       </Project>
-      <Link to="/tasks" className="no-underline">
+      <a
+        href="https://ca.adhyaaya.org/#faqs"
+        target="_blank"
+        className="no-underline"
+      >
         <AllProject>Start Now</AllProject>{" "}
-      </Link>
+      </a>
     </YourProjects>
   );
 }
