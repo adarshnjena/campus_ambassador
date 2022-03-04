@@ -4,7 +4,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Live Website : - https://caportal-adhyaaya.web.app
+Live Website : - https://cadashboard.adhyaaya.org
 ## Available Scripts
 
 In the project directory, you can run:
