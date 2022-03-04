@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "caportal-adhyaaya"
-  }
+    "default": "adhyaayacadashboard",
+    "staging": "adhyaayacadashboard"
+  },
+  "targets": {}
 }

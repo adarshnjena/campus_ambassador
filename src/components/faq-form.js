@@ -56,14 +56,14 @@ export default function Faq() {
         <div className={styles["panels-container"]}>
           <div className={`${styles["panel"]} ${styles["left-panel"]}`}>
             <div className={styles["content1"]}>
-              <h3>Have a new quetion ?</h3>
+              <h3>Have a new query ?</h3>
               <p>
                 Feel free to contact us on our support email : <br />{" "}
                 <div className="tw-p-2 tw-max-w-min tw-mx-auto">
-                  adarshnjena@gmail.com
+                  adhyaaya.ca@gmail.com
                 </div>
               </p>
-              <a href="mailto:adarshnjena@gmail.com">
+              <a href="mailto:adhyaaya.ca@gmail.com">
                 <button
                   className={`${styles["btn"]} tw-hidden ${styles["transparent"]}`}
                   id="sign-up-btn"
@@ -86,26 +86,25 @@ export default function Faq() {
 
 const data = [
   {
-    question: "Question1 ",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Totam distinctio quod quos voluptatibus placeat. Tempora, sint exercitationem recusandae, debitis amet quos unde impedit odio sunt laborum provident error ex explicabo! ",
+    question: "1. When will my scores get updated?",
+    answer: "Your Scores will update within a week after the deadline.",
   },
 
   {
-    question: "Question2",
+    question: "2. What are the different categories of tasks?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Totam distinctio quod quos voluptatibus placeat. Tempora, sint exercitationem recusandae, debitis amet quos unde impedit odio sunt laborum provident error ex explicabo! ",
+      "There are two types of tasks: Mandatory task, Bonus task; The mandatory task will help you to get certified and can have other incentives. Bonus tasks will help you to increase your rank.",
   },
 
   {
-    question: "Question3 ",
+    question: "3. What is the criteria for getting the certificate?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Totam distinctio quod quos voluptatibus placeat. Tempora, sint exercitationem recusandae, debitis amet quos unde impedit odio sunt laborum provident error ex explicabo! ",
+      "You have to complete all the mandatory tasks and the bonus tasks helps you to gain a better badge",
   },
 
   {
-    question: "Question4 ",
+    question: "4. What will I gain out of it?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit.Totam distinctio quod quos voluptatibus placeat. Tempora, sint exercitationem recusandae, debitis amet quos unde impedit odio sunt laborum provident error ex explicabo! ",
+      "You will gain an experience which will help you develop your time management skills, team work, network.",
   },
 ];

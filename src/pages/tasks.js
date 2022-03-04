@@ -16,6 +16,7 @@ import { useState } from "react";
 
 
 function Tasks({ close, setClose, setNavbarVisible }) {
+  setNavbarVisible(true);
   let navigate = useNavigate();
   const redirect = () => {
     navigate("/");

@@ -40,19 +40,19 @@ export default function CardProfile({
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                     22
                   </span>
-                  <span className="text-sm text-blueGray-400">Friends</span>
+                  <span className="text-sm text-blueGray-400">x</span>
                 </div>
                 <div className="mr-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                     10
                   </span>
-                  <span className="text-sm text-blueGray-400">Photos</span>
+                  <span className="text-sm text-blueGray-400">y</span>
                 </div>
                 <div className="lg:mr-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                     89
                   </span>
-                  <span className="text-sm text-blueGray-400">Comments</span>
+                  <span className="text-sm text-blueGray-400">z</span>
                 </div>
               </div>
             </div>

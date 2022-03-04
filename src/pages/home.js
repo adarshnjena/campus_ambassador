@@ -27,6 +27,7 @@ function Home({ close, setClose, setNavbarVisible }) {
   const [ca_code, setCa_code] = useState(null);
   const [num_of_paid_registrations, setNum_of_paid_registrations] =
     useState(null);
+  const [rank, setRank] = useState(0);
   const redirect = () => {
     navigate("/");
   };
@@ -54,6 +55,7 @@ function Home({ close, setClose, setNavbarVisible }) {
     getDoc(doc(db, "users", user?.uid)).then((docSnap) => {
       if (docSnap.exists()) {
         userData = docSnap.data();
+        setRank(userData.rank);
         if (
           userData.city === "" ||
           userData.country === "" ||
@@ -75,7 +77,6 @@ function Home({ close, setClose, setNavbarVisible }) {
       setUser(currentUser);
       getUsersData();
       getCaCode();
-      console.log(ca_code);
       getPaidRegis();
       if (ca_code) {
         setFlag(false);
@@ -88,7 +89,6 @@ function Home({ close, setClose, setNavbarVisible }) {
       }, 1000);
     });
   }
-  
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -168,7 +168,7 @@ function Home({ close, setClose, setNavbarVisible }) {
           </ColumnTwo>
           <ColumnOne>
             <ColumnThree>
-              <Ranks></Ranks>
+              <Ranks rank={rank}></Ranks>
               <Info
                 num_of_paid_registrations={num_of_paid_registrations}
               ></Info>

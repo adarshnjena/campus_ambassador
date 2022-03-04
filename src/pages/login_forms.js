@@ -281,10 +281,7 @@ function Form() {
               <div className="panel left-panel">
                 <div className="content">
                   <h3>New here ?</h3>
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Debitis, ex ratione. Aliquid!
-                  </p>
+                  <p>Register Now as CAMPUS AMBASSADOR!</p>
                   <button
                     onClick={slideLeft}
                     className="btn transparent"
@@ -302,10 +299,7 @@ function Form() {
               <div className="panel right-panel">
                 <div className="content">
                   <h3>One of us ?</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nostrum laboriosam ad deleniti.
-                  </p>
+                  <p>Signin Now as CAMPUS AMBASSADOR!</p>
                   <button
                     onClick={slideRight}
                     className="btn transparent"

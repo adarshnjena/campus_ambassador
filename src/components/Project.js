@@ -70,7 +70,7 @@ function Task({ seeAll, setNavbarVisible }) {
                 content={`${
                   taskComplitionData[`task${cur_index + 1}`]
                     ? "Done"
-                    : "Painding"
+                    : "Pending"
                 }`}
                 done={taskComplitionData[`task${cur_index + 1}`]}
                 late={proj.late}

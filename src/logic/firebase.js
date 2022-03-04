@@ -9,23 +9,14 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-
-  apiKey: "AIzaSyCEh7vHPOJBbmCIZ_pHOqLnDBsKh5-UHBQ",
-
-  authDomain: "adhyaaya-dev-env.firebaseapp.com",
-
-  projectId: "adhyaaya-dev-env",
-
-  storageBucket: "adhyaaya-dev-env.appspot.com",
-
-  messagingSenderId: "299413973703",
-
-  appId: "1:299413973703:web:76d391cfe68069db132ce2",
-
-  measurementId: "G-Z9Z1GHE65D"
-
+  apiKey: "AIzaSyCIfzWW2ATPtfMb0SEoNU1jKZiwSWiDFHc",
+  authDomain: "adhyaayacadashboard.firebaseapp.com",
+  projectId: "adhyaayacadashboard",
+  storageBucket: "adhyaayacadashboard.appspot.com",
+  messagingSenderId: "539794070537",
+  appId: "1:539794070537:web:3006eac4c3278f13b96cd8",
+  measurementId: "G-FV7Z4VPD6P",
 };
-
 
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
@@ -39,34 +30,43 @@ const db = getFirestore();
 
 export const user_data = (user, userData) => {
   getDoc(doc(db, "users", user.uid)).then((docSnap) => {
-    if (docSnap.exists()) {
-      userData = docSnap.data();
-    } else {
-      let Ca_code = user?.uid.slice(0, 7);
-      setDoc(doc(db, "users", user?.uid), {
-        about: "",
-        address: "",
-        city: "",
-        college_name: "",
-        country: "",
-        first_name: "",
-        last_name: "",
-        phone: 1,
-        task_complition_data: {
-          task1: false,
-          task2: false,
-          task3: false,
-          task4: false,
-          task5: false,
-        },
+    let rank = 0;
+    getDoc(doc(db, "count", "1")).then((docSnap_cnt) => {
+      console.log(docSnap_cnt.data().count);
+      rank = docSnap_cnt.data().count;
+      if (docSnap.exists()) {
+        userData = docSnap.data();
+      } else {
+        let Ca_code = user?.uid.slice(0, 7);
+        setDoc(doc(db, "users", user?.uid), {
+          about: "",
+          address: "",
+          city: "",
+          college_name: "",
+          country: "",
+          first_name: "",
+          last_name: "",
+          phone: 1,
+          rank: rank,
+          task_complition_data: {
+            task1: false,
+            task2: false,
+            task3: false,
+            task4: false,
+            task5: false,
+          },
+        });
+        setDoc(doc(db, "uid_rel_with_ca_code", user.uid), {
+          ca_code: Ca_code,
+        });
+        setDoc(doc(db, "ca_code", Ca_code), {
+          number_of_regis: 0,
+        });
+      }
+      setDoc(doc(db, "count", "1"), {
+        count: rank + 1,
       });
-      setDoc(doc(db, "uid_rel_with_ca_code", user.uid), {
-        ca_code: Ca_code,
-      });
-      setDoc(doc(db, "ca_code", Ca_code), {
-        number_of_regis: 0,
-      });
-    }
+    });
   });
 };
 
@@ -83,9 +83,9 @@ export const update_user_data = (user, userData) => {
   });
 };
 
-export async function update_task_data (user, task_id) { 
-  let snapshot = await getDoc(doc(db, "users", user.uid))
-  let data = snapshot.data()
-  data['task_complition_data'][`task${task_id+1}`] = true
+export async function update_task_data(user, task_id) {
+  let snapshot = await getDoc(doc(db, "users", user.uid));
+  let data = snapshot.data();
+  data["task_complition_data"][`task${task_id}`] = true;
   updateDoc(doc(db, "users", user.uid), data);
 }

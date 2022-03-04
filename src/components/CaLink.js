@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { cardShadow, hoverEffect, themeColor } from "../utils";
 
 function CaLink() {
@@ -7,11 +8,20 @@ function CaLink() {
     <YourProjects>
       <Project>
         <Detail>
-          <Title>What is CA Code</Title>
-          <SubTitle>1 day remaining</SubTitle>
+          <Title>WHAT IS CA CODE?</Title>
+          <SubTitle>
+            Share this code with your friends and ask them to fill it in
+            referral code section, when they are registering for the events.
+          </SubTitle>
         </Detail>
       </Project>
-      <AllProjects>Know More</AllProjects>
+      <a
+        href="https://ca.adhyaaya.org/#faqs"
+        target="_blank"
+        className="no-underline"
+      >
+        <AllProject>Start Now</AllProject>{" "}
+      </a>
     </YourProjects>
   );
 }
@@ -57,7 +67,7 @@ const Title = styled.h3`
 const SubTitle = styled.h5`
   font-weight: 300;
 `;
-const AllProjects = styled.h5`
+const AllProject = styled.h5`
   text-align: end;
   color: ${themeColor};
   cursor: pointer;

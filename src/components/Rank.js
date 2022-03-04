@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IoStatsChart } from "react-icons/io5";
 import { themeColor, hoverEffect } from "../utils";
 
-function Ranks() {
+function Ranks({ rank }) {
   return (
     <RankCard>
       <CardContent>
@@ -11,8 +11,8 @@ function Ranks() {
           <IoStatsChart />
         </Chart>
         <RankText>Rank</RankText>
-        <Rank>7,890</Rank>
-        <RankIncrease>+ 10% since last month</RankIncrease>
+        <Rank>{rank}</Rank>
+        <RankIncrease>out of 500 CAs</RankIncrease>
       </CardContent>
     </RankCard>
   );
