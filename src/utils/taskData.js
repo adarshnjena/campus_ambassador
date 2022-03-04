@@ -129,7 +129,10 @@ function projectData() {
             your Headline.
             <b>
               {" "}
-              Upload relevant screenshots of your profile for verification.
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
             </b>
           </p>
         );
@@ -162,7 +165,8 @@ function projectData() {
             account and describe what have you learned so far and what more are
             you expecting to gain from this program. <br />
             <br />
-            <br /> Upload relevant screenshots of the profiles for verification.
+            <br />{" "}
+            <center><b>Upload relevant screenshots of the profiles for verification.</b></center>
           </p>
         );
       },
@@ -184,14 +188,22 @@ function projectData() {
             <br />
             Hey CAs! The new task has been lined up for you! In task 4, you have
             to share the link Adhyaaya's official website in your Instagram
-            stories and whatsapp status with the message.
+            stories and whatsapp status with the following message with this
+            image{" "}
+            <a
+              href="https://drive.google.com/file/d/1x2LF4-ZCBWFYbWjhc0PB72FKw475BPPr/view?usp=sharing"
+              target="_blank"
+            >
+              click here
+            </a>
+            .
             <br />
-            Your story/status can look like this :
+            You can put you story / status like this:
             <center>
               <div class="bg-white text-base w-5/6  rounded-lg shadow m-auto -brown-400 border border-t-8 border-b-8 border-black mt-10 mb-10 flex flex-col">
                 <div class="p-4 flex flex-col">
                   <h3 type="element" class="text-2xl" id="whoobe-ozjao">
-                    Stories/Status
+                    Story / Status
                   </h3>
                   <p type="element" class="my-4 text-justify" id="whoobe-dvhrz">
                     <center>
@@ -201,10 +213,9 @@ function projectData() {
                     </center>
                     <br />
                     Adhyaaya, the technical symposium of Government College of
-                    Engineering Nagpur is back with a rejuvenated form and new
-                    energy. Check out the official website of Adhyaaya'22. Its
-                    the go-to place for everything related to Adhyaaya. Share
-                    this as much as possible with your friends and colleagues
+                    Engineering Nagpur is back with a revamped form and new
+                    energy. Check out the Official Website of Adhyaaya'22. Its
+                    the go-to place for everything related to Adhyaaya.
                   </p>
                 </div>
               </div>
