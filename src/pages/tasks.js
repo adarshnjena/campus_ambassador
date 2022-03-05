@@ -14,7 +14,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-
 function Tasks({ close, setClose, setNavbarVisible }) {
   setNavbarVisible(true);
   let navigate = useNavigate();

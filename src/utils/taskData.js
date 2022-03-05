@@ -166,7 +166,11 @@ function projectData() {
             you expecting to gain from this program. <br />
             <br />
             <br />{" "}
-            <center><b>Upload relevant screenshots of the profiles for verification.</b></center>
+            <center>
+              <b>
+                Upload relevant screenshots of the profiles for verification.
+              </b>
+            </center>
           </p>
         );
       },
@@ -278,9 +282,11 @@ function projectData() {
       content: () => {
         return (
           <p>
-            <strong>
-              "Invention is the natural outcome of creative thinking"{" "}
-            </strong>
+            <center>
+              <strong>
+                "Invention is the natural outcome of creative thinking"{" "}
+              </strong>
+            </center>
             <br />
             Want to ignite the inner inventor in you, then guess what? We have
             the perfect event for you! Government College of Engineering,
@@ -288,8 +294,7 @@ function projectData() {
             <strong>'Avishkar'</strong>. A project based innovation competition.
             The perfect platform for creative and research oriented approach in
             a technically advancing world. Bring out the innovator in you and
-            stand a chance to win exciting prizes! Visit our website from the
-            link in bio to register!
+            stand a chance to win exciting prizes! Visit our website:
             <center>
               <div class="container flex mx-auto w-full items-center justify-center">
                 <ul class="flex flex-col bg-gray-300 pt-4 pb-4">
@@ -320,6 +325,83 @@ function projectData() {
               <br />
               <b>Upload relevant screenshots for verification.</b>
             </center>
+          </p>
+        );
+      },
+      late: false,
+    },
+    {
+      title: "Task 6",
+      img: "image/task-6.jpeg",
+      subtitle: "30 Points",
+      content: () => {
+        return (
+          <p>
+            <center>
+              <p>
+                <b>
+                  Worried about getting into your dream company? Worried about
+                  getting into your dream company? Scared of the recruitment
+                  process and need a confidence boost?🤔
+                </b>
+              </p>
+            </center>
+            <br />
+            Don't worry, here we bring you a great opportunity to test your
+            preparation for the corporate world!🤩 Government College of
+            Engineering, Nagpur's ⚡ADHYAAYA'22⚡ in collaboration with T.I.M.E
+            institute and Upgrad presents 🧑‍💼 VIRTUAL PLACEMENT 👩‍💼 A
+            simulation of the actual recruitment process to make sure you're
+            groomed and ready to go on the D-day!💥 📌Enhance your
+            self-confidence and communication skills🗣️ 📌Prepare yourself before
+            stepping into the competitive world🌎 📌Take your first step towards
+            professionalism🧳 📌Be an improved version of yourself✨ 🏆Give your
+            best and stand a chance to win some of the most exciting prizes! 🗓️
+            Dates: 25th and 26th March 2022 Register Here:
+            <a href="https://adhyaaya.org/events/">Click</a>
+            <b>
+              {" "}
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
+            </b>
+          </p>
+        );
+      },
+      late: false,
+    },
+    {
+      title: "Task 7",
+      img: "image/task-7.jpeg",
+      subtitle: "30 Points",
+      content: () => {
+        return (
+          <p>
+            <center>
+              <p>
+                <b>
+                  Does the inner cricketer in you get fascinated by watching box
+                  cricket leagues?
+                </b>
+              </p>
+            </center>
+            <br />
+            Do you also aspire to be the hero for your team?🤩 Well, then you're
+            at the right place! Government College of Engineering, Nagpur's ⚡
+            Adhyaaya '22 ⚡ presents 🏏CRICBASH🏏 Adhyaaya's very own and widely
+            loved box cricket league is back with a bang!💥 A competitive team
+            event in which the winning team takes the amazing prize home!🏆 It
+            will be raining 4s and 6s in GCOEN🔥 So cricket lovers, get your
+            team ready and register now through the link given below!
+            <a href="https://adhyaaya.org/events/">Click</a>
+            <b>
+              {" "}
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
+            </b>
           </p>
         );
       },
