@@ -27,6 +27,7 @@ function Home({ close, setClose, setNavbarVisible }) {
   const [ca_code, setCa_code] = useState(null);
   const [num_of_paid_registrations, setNum_of_paid_registrations] =
     useState(null);
+  const [num_of_tasks_completed, setNum_of_tasks_completed] = useState(null);
   const [rank, setRank] = useState(0);
   const redirect = () => {
     navigate("/");
@@ -67,6 +68,19 @@ function Home({ close, setClose, setNavbarVisible }) {
         ) {
           setShowUpdateprofile(true);
         }
+        let count = 0;
+        console.log(userData["task_complition_data"]);
+        //docSnap['task_complition_data']
+        for (let [key, value] of Object.entries(
+          userData["task_complition_data"]
+        )) {
+          if (value === true) {
+            count++;
+            console.log(key, value);
+          }
+        }
+        setNum_of_tasks_completed(count);
+        //setNum_of_paid_registrations(count);
       } else {
         console.log("No such document!");
       }
@@ -131,17 +145,17 @@ function Home({ close, setClose, setNavbarVisible }) {
           {showUpdateprofile ? (
             <Link to={"/profile"} className="no-underline">
               <div
-                className="mb-3 flex items-center justify-between bg-yellow-200 border-yellow-600 text-yellow-600 border-l-4 p-3"
+                className="flex items-center justify-between p-3 mb-3 text-yellow-600 bg-yellow-200 border-l-4 border-yellow-600"
                 role="alert"
               >
                 <p className="font-bold">Update Your Profile</p>
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center space-x-2 py-3 px-4 border border-transparent text-sm font-medium rounded text-yellow-600 hover:text-yellow-700 bg-yellow-50 hover:bg-yellow-100 transition-colors"
+                  className="inline-flex items-center justify-center px-4 py-3 space-x-2 text-sm font-medium text-yellow-600 transition-colors border border-transparent rounded hover:text-yellow-700 bg-yellow-50 hover:bg-yellow-100"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="w-5 h-5"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -171,6 +185,7 @@ function Home({ close, setClose, setNavbarVisible }) {
               <Ranks rank={rank}></Ranks>
               <Info
                 num_of_paid_registrations={num_of_paid_registrations}
+                num_of_tasks_completed={num_of_tasks_completed}
               ></Info>
             </ColumnThree>
             <Task seeAll={true}></Task>

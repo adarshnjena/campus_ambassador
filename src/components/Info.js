@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { cardShadow, hoverEffect, themeColor } from "../utils";
-function Info({ num_of_paid_registrations }) {
+function Info({ num_of_paid_registrations, num_of_tasks_completed }) {
   return (
     <InfoCard>
       <Card>
@@ -21,7 +21,10 @@ function Info({ num_of_paid_registrations }) {
       <Card>
         <CardContent>
           <Row>
-            <Digit>00</Digit>
+            <Digit>
+              {num_of_tasks_completed < 10 ? 0 : ""}
+              {num_of_tasks_completed}
+            </Digit>
             <InfoContainer>
               <Title>Tasks Completed</Title>
               <SubTitle>Work Hard</SubTitle>

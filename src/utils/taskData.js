@@ -407,6 +407,245 @@ function projectData() {
       },
       late: false,
     },
+    {
+      title: "Task 8",
+      img: "image/task-8.jpeg",
+      subtitle: "30 Points",
+      content: () => {
+        return (
+          <p>
+            <center>
+              <p>
+                {/* <b>
+                  Does the inner cricketer in you get fascinated by watching box
+                  cricket leagues?
+                </b> */}
+              </p>
+            </center>
+            <br />
+            💫Do you see yourself as a leader and not just a follower!? Ever
+            dreamt of being a diplomat? Now, it's your chance to live your
+            dream!💭 Government College of Engineering Nagpur's ✨ Adhyaaya '22
+            ✨ presents 💼MODEL UNITED NATIONS🏢 A simulation of the United
+            Nations where real world issues are raised and discussed among the
+            delegates who represent different nations/parties🌟 The Committees:
+            DISEC(Disarmament and International Security Committee) and Lok
+            Sabha Benefits of participating:- ➡️Improve your communication and
+            leadership skills ➡️Get a better understanding of global as well as
+            national issues ➡️Step into the shoes of world leaders and express
+            your views freely Stand a chance to win prizes worth upto 10k🤩💰 So
+            gear up to walk and talk like a diplomat!👨🏻‍💼👩🏻‍💼 Register through the
+            given link as soon as possible to book your seat! Mode of
+            conduction: Offline Coordinators:- Ankita Sakharkar: 7822957068 Arya
+            Mahashabde: 9168798539
+            <a href="https://adhyaaya.org/events/">Link</a>
+            <b>
+              {" "}
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
+            </b>
+          </p>
+        );
+      },
+      late: false,
+    },
+    {
+      title: "Task 9",
+      img: "image/task-9.jpeg",
+      subtitle: "30 Points",
+      content: () => {
+        return (
+          <p>
+            <center>
+              <p>
+                {/* <b>
+                  Does the inner cricketer in you get fascinated by watching box
+                  cricket leagues?
+                </b> */}
+              </p>
+            </center>
+            <br />
+            ✨Hey there foodies!!✨ What if we tell you, that you can win cool
+            and attractive prizes for eating food!?!😮 Yes, you read it
+            right!!🎉 Government College of Engineering, Nagpur's ✨ Adhyaaya
+            '22 ✨ presents 🍔 FOOD-O-HOLIC 🍨 A fun and exciting team event
+            filled with a lot of food and a lot of surprises!👀🤩💥 Doesn't this
+            sound amazing?!?🥳🔥 🍟So what are you waiting for? Get your
+            appetites all set🍴 and register your team now through the link
+            given below!🍦 Coordinators: Vedant Vyawahare : 9403268661 Nipun
+            Mahajan : 8237044683
+            <a href="https://adhyaaya.org/events/">Link🔗</a>
+            <b>
+              {" "}
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
+            </b>
+          </p>
+        );
+      },
+      late: false,
+    },
+    {
+      title: "Task 10",
+      img: "image/task-10.jpeg",
+      subtitle: "30 Points",
+      content: () => {
+        return (
+          <p>
+            <center>
+              <p>
+                {/* <b>
+                  Does the inner cricketer in you get fascinated by watching box
+                  cricket leagues?
+                </b> */}
+              </p>
+            </center>
+            <br />
+            📢 Attention gamers! 🎮 Get ready for the adrenaline rush and the
+            fiercest battles!💥 Government College of Engineering, Nagpur's 👾
+            Adhyaaya '22 👾 presents 🕹️ RESPAWN 🎮 A gaming extravaganza like no
+            other. With 3 of the most exciting games!:- ❇️BGMI ❇️Valorant and
+            introducing for the ✨ first time ever ✨ in the history of Adhyaaya
+            ❇️Chess So folks, get your game face on! The amazing prizes await
+            their winner!🏆🎁 Register yourself/your squad through the link
+            given below as soon as possible to make sure you don't miss this
+            'edge of the seat' gaming experience!Coordinators:- Aryan
+            Waghmare(BGMI) : 8010294936 Prajwal Bhandarkar (Valorant):
+            8830167883 Vibhanshu Chopde (Chess): 8767783579
+            <a href="https://adhyaaya.org/events/">Link🔗</a>
+            <b>
+              {" "}
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
+            </b>
+          </p>
+        );
+      },
+      late: false,
+    },
+    {
+      title: "Task 11",
+      img: "image/task-11.jpeg",
+      subtitle: "30 Points",
+      content: () => {
+        return (
+          <p>
+            <center>
+              <p>
+                {/* <b>
+                  Does the inner cricketer in you get fascinated by watching box
+                  cricket leagues?
+                </b> */}
+              </p>
+            </center>
+            <br />
+            Hey Folks!📢 Want to refine your oratory skills 🗣️?? Then why to
+            wait....when we have an Elocution and a Debate! 🟡 *Government
+            College of Engineering Nagpur's 🟡 🔅ADHYAAYA'22🔅 presents 🗣️ VAAD
+            VIVAD 💬 ✨A meticulously 3 round oration competition to make sure
+            only the best survives✨ 🔸 Enhances your critical thinking and
+            public speaking💫 🔹Compete with the finest to bring out the best in
+            you!✨ So, Mark the Dates📝 26th and 27th March 2022 Register now
+            with the link given below and stand a chance to win exciting prizes
+            📍 Link🔗:https://adhyaaya.org/events/ Coordinators📲 Rishika
+            Deshmukh 8177920828 Saher Pathan 8010961865
+            <a href="https://adhyaaya.org/events/">Link🔗</a>
+            <b>
+              {" "}
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
+            </b>
+          </p>
+        );
+      },
+      late: false,
+    },
+    {
+      title: "Task 12",
+      img: "image/task-12.jpeg",
+      subtitle: "30 Points",
+      content: () => {
+        return (
+          <p>
+            <center>
+              <p>
+                {/* <b>
+                  Does the inner cricketer in you get fascinated by watching box
+                  cricket leagues?
+                </b> */}
+              </p>
+            </center>
+            <br />
+            Hey undergrads! Do you believe you can excel in designing? But don't
+            have a platform to flourish?👨🏻‍💻👩🏻‍💻 Don't worry, we've got you covered!
+            𝐆𝐎𝐕𝐄𝐑𝐍𝐌𝐄𝐍𝐓 𝐂𝐎𝐋𝐋𝐄𝐆𝐄 𝐎𝐅 𝐄𝐍𝐆𝐈𝐍𝐄𝐄𝐑𝐈𝐍𝐆 , 𝐍𝐀𝐆𝐏𝐔𝐑'𝐒..... ✨ ADHYAAYA'22 ✨
+            Presents 💻𝐂𝐀𝐃𝐃𝐈𝐂𝐓𝐈𝐎𝐍 💻 The Most Fascinating Platform For Designing
+            And 3D Modeling! Compete with the best to be the best!🔥 ✅Test your
+            Core Concepts. ✅Showcase your Autocad & Solidwork Skills. ✅Gain
+            valuable experience through a healthy comp ➡️Stand a chance to win
+            exciting prizes and much more! 🔺Hurry Up and register now through
+            the link given below! Link🔗:https://adhyaaya.org/events/
+            Coordinators:- Nikhil Pawar-8767114868 Ankur Wanjari- 9066443976
+            <a href="https://adhyaaya.org/events/">Link🔗</a>
+            <b>
+              {" "}
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
+            </b>
+          </p>
+        );
+      },
+      late: false,
+    },
+    {
+      title: "Task 13",
+      img: "image/task-13.jpeg",
+      subtitle: "30 Points",
+      content: () => {
+        return (
+          <p>
+            <center>
+              <p>
+                {/* <b>
+                  Does the inner cricketer in you get fascinated by watching box
+                  cricket leagues?
+                </b> */}
+              </p>
+            </center>
+            <br />
+            Greetings Coders! If competitive coding is your Forte, Well then,
+            Your time is now! Government College of Engineering,Nagpur's
+            ⚡Adhyaaya '22⚡ presents 💻 CODEVENTURE 💻 The flagship technical
+            event consisting of debugging, and problem solving like no other.
+            ✅Compete with the best coders from all over the country ✅Healthy
+            competitive environment for personal/community development ✅A
+            golden chance to win exciting prizes So without any delay, register
+            through the link given below! Link🔗: https://adhyaaya.org/events/
+            Coordinators:- Abhishek Chokhat- 7758924285 Pratik Suryawanshi-
+            9284920318
+            <a href="https://adhyaaya.org/events/">Link🔗</a>
+            <b>
+              {" "}
+              <br />
+              <center>
+                Upload relevant screenshots of your profile for verification.
+              </center>
+            </b>
+          </p>
+        );
+      },
+      late: false,
+    },
   ];
 }
 
